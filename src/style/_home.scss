@@ -15,7 +15,23 @@
   transition: all 0.5s;
 }
 
-.lcKOhx{
+.sc-EHOje .lcKOhx{
+  // margin: 30px !important;
+}
+
+.sc-EHOje .lcKOhx{
   left: 0px !important;
-  margin: 20px;
+  top: 20px !important;
+}
+
+.content-left{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.content-right{
+  writing-mode: vertical-rl;
+  display: flex;
+  flex-direction: column;
+  // text-orientation: upright;
 }

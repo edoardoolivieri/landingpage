@@ -7,7 +7,12 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 100px;
+  padding: 0px 60px;
+`
+const Maincontainer = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 const Img = styled.div`
@@ -24,27 +29,35 @@ const Content = styled.div`
 class Home extends Component {
   render(){
     return(
-      <Container>
-        <Img>
-          <Image src={Nike} alt="Off-white Air force 1 Black" className="img-home" />
-        </Img>
-        <Content>
-          <div className="container-home">
-            <h1>Sneakers Shop</h1>
-              <div className="info">
-                <p>Buy.</p>
-                <p>Sell.</p>
-                <p>Trade.</p>
+      <Maincontainer>
+        <div className="content-left">
+          <p>" Sneakers "</p>
+        </div>
+          <Container>
+            <Img>
+              <Image src={Nike} alt="Off-white Air force 1 Black" className="img-home" />
+            </Img>
+            <Content>
+              <div className="container-home">
+                <h1>Sneakers Shop</h1>
+                  <div className="info">
+                    <p>Buy.</p>
+                    <p>Sell.</p>
+                    <p>Trade.</p>
+                  </div>
+                <p>
+                  Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet, suscipit gravida diam. Praesent nulla velit, dictum vitae sollicitudin at, egestas sed nisi.
+                </p>
+                <button type="button" className="btn-first-section">
+                  <p>Find your Sneaker</p>
+                </button>
               </div>
-            <p>
-              Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet, suscipit gravida diam. Praesent nulla velit, dictum vitae sollicitudin at, egestas sed nisi.
-            </p>
-            <button type="button" className="btn-first-section">
-              <p>Find your Sneaker</p>
-            </button>
-          </div>
-        </Content>
-      </Container>
+            </Content>
+          </Container>
+        <div className="content-right">
+          <p> " scroll to explore " </p>
+        </div>
+      </Maincontainer>
     );
   };
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import './style/App.scss';
-import { Sticky, StickyContainer  } from 'react-sticky';
+// import { Sticky, StickyContainer  } from 'react-sticky';
+import { Navbar } from 'react-bootstrap';
 
 import Home from './components/home';
 import Service from './components/service';
@@ -15,7 +16,7 @@ const Section = styled.div`
 const AppWrapper = styled.div`
   margin: 20px 50px;
 `
-const Navbar = styled.div`
+const Navbarbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,35 +29,29 @@ const Nav = styled.div`
     margin: 0px 10px;
   }
 `
-let renderCount = 0;
+
 function App() {
   return (
     <AppWrapper>
-      <StickyContainer>
-        <Sticky disableHardwareAcceleration>
-        {({ style }) => (
-          <Navbar style={style} renderCount={renderCount++}>
-            <div className="title">
-              Dixit
-            </div>
-            <Nav>
-              <p>Brands</p>
-              <p>Services</p>
-              <p>About Us</p>
-            </Nav>
-          </Navbar>
-        )}
-        </Sticky>
-        <Section>
-          <Home />
-        </Section>
-        <Section>
-          <Service />
-        </Section>
-        <Section>
-          <Brands />
-        </Section>
-      </StickyContainer>
+      <Navbarbar>
+        <div className="title">
+          Dixit
+        </div>
+        <Nav>
+          <p>Brands</p>
+          <p>Services</p>
+          <p>About Us</p>
+        </Nav>
+      </Navbarbar>
+      <Section>
+        <Home />
+      </Section>
+      <Section>
+        <Service />
+      </Section>
+      <Section>
+        <Brands />
+      </Section>
     </AppWrapper>
   );
 }

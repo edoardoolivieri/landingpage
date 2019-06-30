@@ -9,10 +9,8 @@ import Service from './components/service';
 import Brands from './components/brands';
 
 const Section = styled.div`
-  margin: 50px 60px;
   min-height: 100vh;
 `
-
 const AppWrapper = styled.div`
   margin: 20px 50px;
 `
@@ -20,7 +18,6 @@ const Navbarbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 60px;
 `
 const Nav = styled.div`
   display: flex;

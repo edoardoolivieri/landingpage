@@ -12,26 +12,30 @@
 
 .img-home{
   width: 100%;
-  transition: all 0.5s;
 }
 
-.sc-EHOje .lcKOhx{
-  // margin: 30px !important;
+.img-sneaker{
+  width: 10px;
+  margin-top: 50px;
 }
 
-.sc-EHOje .lcKOhx{
-  left: 0px !important;
-  top: 20px !important;
+.image-sneaker{
+  display: flex;
+  justify-content: center;
 }
 
-.content-left{
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
-
-.content-right{
-  writing-mode: vertical-rl;
+.social{
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  // text-orientation: upright;
+  align-items: center;
+  justify-content: space-between;
+  a{
+    margin: 5px 0px;
+  }
+  i{
+    font-size: 15px;
+    color:$primaryColor;
+    transition: all 0.5s;
+  }
 }

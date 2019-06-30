@@ -2,25 +2,28 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 import Nike from '../images/airforce2.jpg';
+import Sneakers from '../images/sneakers.png';
+import Scroll from '../images/scroll.png';
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 100px;
-  padding: 0px 60px;
+  padding: 0px 30px;
 `
 const Maincontainer = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 50px;
 `
 
 const Img = styled.div`
-  width: 50%;
+  width: 60%;
   margin-right: 30px;
 `
 const Content = styled.div`
-  width: 50%;
+  width: 44%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -31,7 +34,20 @@ class Home extends Component {
     return(
       <Maincontainer>
         <div className="content-left">
-          <p>" Sneakers "</p>
+          <div className="image-sneaker">
+            <Image src={Sneakers} alt="Logo" className="img-sneaker" />
+          </div>
+          <div className="social">
+            <a href="https://www.linkedin.com/in/edoardo-olivieri/" rel="noopener noreferrer" target="_blank">
+              <i className="fab fa-linkedin" />
+            </a>
+            <a href="https://www.instagram.com/diddo6/?hl=it" rel="noopener noreferrer" target="_blank">
+              <i className=" fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/Dixit-Appear" rel="noopener noreferrer" target="_blank">
+              <i className=" fab fa-github"></i>
+            </a>
+          </div>
         </div>
           <Container>
             <Img>
@@ -55,7 +71,7 @@ class Home extends Component {
             </Content>
           </Container>
         <div className="content-right">
-          <p> " scroll to explore " </p>
+          <Image src={Scroll} alt="Logo" className="img-sneaker" />
         </div>
       </Maincontainer>
     );

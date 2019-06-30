@@ -9,13 +9,12 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 150px;
   padding: 0px 30px;
 `
 const Maincontainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 50px;
 `
 
 const Img = styled.div`

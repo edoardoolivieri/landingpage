@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import './style/App.scss';
 // import { Sticky, StickyContainer  } from 'react-sticky';
-import { Navbar } from 'react-bootstrap';
 
 import Home from './components/home';
 import Service from './components/service';
@@ -14,10 +13,11 @@ const Section = styled.div`
 const AppWrapper = styled.div`
   margin: 20px 50px;
 `
-const Navbarbar = styled.div`
+const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
 `
 const Nav = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const Nav = styled.div`
 function App() {
   return (
     <AppWrapper>
-      <Navbarbar>
+      <Navbar>
         <div className="title">
           Dixit
         </div>
@@ -39,7 +39,7 @@ function App() {
           <p>Services</p>
           <p>About Us</p>
         </Nav>
-      </Navbarbar>
+      </Navbar>
       <Section>
         <Home />
       </Section>

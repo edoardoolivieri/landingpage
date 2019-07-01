@@ -9,8 +9,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 150px;
-  padding: 0px 30px;
+  margin-top: 50px;
+  padding: 0px 70px 0px 30px;
 `
 const Maincontainer = styled.div`
   display: flex;
@@ -19,14 +19,10 @@ const Maincontainer = styled.div`
 
 const Img = styled.div`
   width: 60%;
-  margin-right: 30px;
+  margin-right: 40px;
 `
 const Content = styled.div`
   width: 44%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  text-align: left;
 `
 class Home extends Component {
   render(){
@@ -70,7 +66,7 @@ class Home extends Component {
             </Content>
           </Container>
         <div className="content-right">
-          <Image src={Scroll} alt="Logo" className="img-sneaker" />
+          <Image src={Scroll} alt="Logo" className="img-scroll" />
         </div>
       </Maincontainer>
     );

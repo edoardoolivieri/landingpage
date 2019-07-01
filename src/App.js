@@ -10,6 +10,12 @@ import Brands from './components/brands';
 const Section = styled.div`
   min-height: 100vh;
 `
+
+const Section1 = styled.div`
+  min-height: 100vh;
+  margin-top: 50px;
+`
+
 const AppWrapper = styled.div`
   margin: 20px 50px;
 `
@@ -17,7 +23,9 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
 `
 const Nav = styled.div`
   display: flex;
@@ -40,9 +48,9 @@ function App() {
           <p>About Us</p>
         </Nav>
       </Navbar>
-      <Section>
+      <Section1>
         <Home />
-      </Section>
+      </Section1>
       <Section>
         <Service />
       </Section>

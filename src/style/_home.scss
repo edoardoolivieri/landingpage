@@ -1,13 +1,13 @@
-.content h1{
-  font-size: 80px;
-}
-
 .container-home{
   width: 100%;
   height: 440px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  h1{
+    color: $secondColor;
+    font-size: 30px;
+  }
 }
 
 .info{

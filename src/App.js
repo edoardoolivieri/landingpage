@@ -43,9 +43,9 @@ function App() {
           Dixit
         </div>
         <Nav>
-          <p>Brands</p>
-          <p>Services</p>
-          <p>About Us</p>
+          <p>brands</p>
+          <p>services</p>
+          <p>about us</p>
         </Nav>
       </Navbar>
       <Section1>

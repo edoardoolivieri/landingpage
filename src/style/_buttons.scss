@@ -1,7 +1,10 @@
 .btn-first-section{
-  width: 100%;
   padding: 0px 25px;
-  background-color: transparent;
+  p{
+    color: white;
+    font-weight: bold;
+  }
+  background-color: $primaryColor;
   border-radius: 5px;
   border: 0px solid white;
   transition: all 0.5s;
@@ -9,8 +12,10 @@
 }
 
 .btn-first-section:hover{
-  background-color: $primaryColor;
-  color: white;
+  background-color: $secondColor;
+  p{
+    color: $primaryColor;
+  }
   border-radius: 5px;
   border: 0px solid white;
   transform: translateY(-3px);
@@ -19,9 +24,12 @@
 
 
 .btn-brands-section{
-  width: 33%;
   padding: 0px 25px;
   background-color: $primaryColor;
+  p{
+    color: white;
+    font-weight: bold;
+  }
   border-radius: 5px;
   border: 0px solid white;
   transition: all 0.5s;

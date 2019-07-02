@@ -50,7 +50,7 @@ class Home extends Component {
             </Img>
             <Content>
               <div className="container-home">
-                <h1>Sneakers Shop</h1>
+                <h1>Dixit Stock</h1>
                   <div className="info">
                     <p>Buy.</p>
                     <p>Sell.</p>
@@ -60,7 +60,7 @@ class Home extends Component {
                   Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet, suscipit gravida diam. Praesent nulla velit, dictum vitae sollicitudin at, egestas sed nisi.
                 </p>
                 <button type="button" className="btn-first-section">
-                  <p>Find your Sneaker</p>
+                  <p>Find your way</p>
                 </button>
               </div>
             </Content>

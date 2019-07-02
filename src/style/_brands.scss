@@ -1,7 +1,3 @@
-.img-clothing{
-  padding: 0px 78px;
-}
-
 .container-text{
   h2{
     color: white;
@@ -24,9 +20,25 @@
 
 .first-brands{
   display: flex;
+  margin: 50px 0px;
+}
+
+.box-clothing{
+  display: flex;
 }
 
 .img-brands{
-  width: 100%;
-  height: 10px;
+  width: 212px;
+  height: 149px;
+  margin: 20px;
+}
+
+.sc-bZQynM h1{
+  color: $primaryColor;
+  transition: all 0.5s;
+}
+
+.sc-bZQynM h1:hover{
+  color: $secondColor;
+  transform: translateY(-3px);
 }

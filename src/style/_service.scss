@@ -16,5 +16,11 @@
 }
 
 .sc-EHOje h1{
+  color: $primaryColor;
+  transition: all 0.5s;
+}
+
+.sc-EHOje h1:hover{
   color: $secondColor;
+  transform: translateY(-3px);
 }

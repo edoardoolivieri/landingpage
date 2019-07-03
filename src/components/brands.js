@@ -22,7 +22,7 @@ import img13 from '../images/logo5.png';
 
 
 const Mainbrands = styled.div`
-  margin: 50px;
+  margin: 250px 50px 50px 50px;
   display: flex;
   flex-direction: column;
   h1{

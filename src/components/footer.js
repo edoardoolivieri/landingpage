@@ -10,6 +10,7 @@ const Footer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 100px;
 `
 
 class Service extends Component {

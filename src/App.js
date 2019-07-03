@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import './style/App.scss';
 // import { Sticky, StickyContainer  } from 'react-sticky';
@@ -9,12 +9,12 @@ import Brands from './components/brands';
 import Footer from './components/footer';
 
 const Section = styled.div`
-  min-height: 100vh;
+  min-height: auto;
+  margin-top: 50px;
 `
 
 const Section1 = styled.div`
   min-height: 100vh;
-  margin-top: 50px;
 `
 
 const AppWrapper = styled.div`
@@ -35,33 +35,54 @@ const Nav = styled.div`
     margin: 0px 10px;
     font-weight: lighter;
     font-size: 13px;
+    cursor: pointer;
   }
 `
 
-function App() {
-  return (
-    <AppWrapper>
-      <Navbar>
-        <div className="title">
-          <h1>Dixit</h1>
-        </div>
-        <Nav>
-          <p>brands</p>
-          <p>services</p>
-        </Nav>
-      </Navbar>
-      <Section1>
-        <Home />
-      </Section1>
-      <Section>
-        <Service />
-      </Section>
-      <Section>
-        <Brands />
-      </Section>
-      <Footer />
-    </AppWrapper>
-  );
+class App extends Component{
+  constructor(props){
+     super(props)
+     //creates a reference for your element to use
+     this.myDivService = React.createRef()
+  }
+
+  handleOnClick = (event) => {
+    if(this.myDivService.current){
+        this.myDivService.current.scrollIntoView({
+           behavior: "smooth",
+           block: "center",
+           inline: "center"
+        })
+    }
+  }
+
+  render(){
+    return(
+      <AppWrapper>
+        <Navbar>
+          <div className="title">
+            <h1>Dixit</h1>
+          </div>
+          <Nav>
+            <p onClick={this.handleOnClick}>services</p>
+            <p>brands</p>
+          </Nav>
+        </Navbar>
+        <Section1>
+          <Home />
+        </Section1>
+        <Section ref={this.myDivService}>
+          <Service />
+        </Section>
+        <Section>
+          <Brands />
+        </Section>
+        <Footer />
+      </AppWrapper>
+    )
+  }
 }
+
+
 
 export default App;

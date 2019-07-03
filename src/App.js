@@ -33,6 +33,8 @@ const Nav = styled.div`
   justify-content: space-between;
   p{
     margin: 0px 10px;
+    font-weight: lighter;
+    font-size: 13px;
   }
 `
 
@@ -41,7 +43,7 @@ function App() {
     <AppWrapper>
       <Navbar>
         <div className="title">
-          Dixit
+          <h1>Dixit</h1>
         </div>
         <Nav>
           <p>brands</p>

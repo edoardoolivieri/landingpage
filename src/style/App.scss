@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,300i,400,600,600i,700&display=swap');
+
 $primaryColor: #000000;
 $secondColor: #e0bb20;
 
@@ -6,3 +8,7 @@ $secondColor: #e0bb20;
 @import "service.scss";
 @import "brands.scss";
 @import "footer.scss";
+
+body{
+  font-family: 'Exo 2', sans-serif;
+}

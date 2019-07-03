@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import banner from '../images/banner2.png';
+import banner from '../images/banneroff.png';
 import img1 from '../images/bapefront.png';
 import img2 from '../images/off-whiteback.png';
 import img3 from '../images/supreme2.png';
@@ -42,6 +42,7 @@ const Imagesupreme = styled.div`
   align-items: center;
   flex-direction: column;
   border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 `
 
 const Clothing = styled.div`

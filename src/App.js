@@ -6,6 +6,7 @@ import './style/App.scss';
 import Home from './components/home';
 import Service from './components/service';
 import Brands from './components/brands';
+import Footer from './components/footer';
 
 const Section = styled.div`
   min-height: 100vh;
@@ -45,7 +46,6 @@ function App() {
         <Nav>
           <p>brands</p>
           <p>services</p>
-          <p>about us</p>
         </Nav>
       </Navbar>
       <Section1>
@@ -57,6 +57,7 @@ function App() {
       <Section>
         <Brands />
       </Section>
+      <Footer />
     </AppWrapper>
   );
 }

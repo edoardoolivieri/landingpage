@@ -5,6 +5,8 @@ import Nike from '../images/airforce2.jpg';
 import Sneakers from '../images/sneakers.png';
 import Scroll from '../images/scroll.png';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -44,11 +46,14 @@ class Home extends Component {
             </a>
           </div>
         </div>
-          <Container>
-            <Img>
+        <Container>
+          <Img>
+            <ScrollAnimation animateIn='fadeInDown'>
               <Image src={Nike} alt="Off-white Air force 1 Black" className="img-home" />
-            </Img>
-            <Content>
+            </ScrollAnimation>
+          </Img>
+          <Content>
+            <ScrollAnimation animateIn='fadeInUp'>
               <div className="container-home">
                 <h1>Dixit Stock</h1>
                   <div className="info">
@@ -63,8 +68,9 @@ class Home extends Component {
                   <p>Find your way</p>
                 </button>
               </div>
-            </Content>
-          </Container>
+            </ScrollAnimation>
+          </Content>
+        </Container>
         <div className="content-right">
           <Image src={Scroll} alt="Logo" className="img-scroll" />
         </div>

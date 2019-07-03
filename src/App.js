@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import './style/App.scss';
+import ScrollAnimation from 'react-animate-on-scroll';
 // import { Sticky, StickyContainer  } from 'react-sticky';
 
 import Home from './components/home';

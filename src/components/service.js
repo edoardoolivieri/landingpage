@@ -5,6 +5,8 @@ import Sell from '../images/sell.png';
 import Buy from '../images/buy.png';
 import Trade from '../images/trade.png';
 
+import ScrollAnimation from 'react-animate-on-scroll';
+
 const Cards = styled.div`
   display: flex;
   justify-content: center;
@@ -26,17 +28,23 @@ class Service extends Component {
         <h1>Snk Service .</h1>
         <Cards>
           <div className="card">
+            <ScrollAnimation animateIn='fadeInDown'>
             <Image src={Sell} alt="Sell ." className="img-section" />
+            </ScrollAnimation>
             <h2>Sell .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>
           </div>
           <div className="card">
+            <ScrollAnimation animateIn='fadeInDown'>
             <Image src={Buy} alt="Sell ." className="img-section" />
+            </ScrollAnimation>
             <h2>Buy .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>
           </div>
           <div className="card">
+            <ScrollAnimation animateIn='fadeInDown'>
             <Image src={Trade} alt="Sell ." className="img-section" />
+            </ScrollAnimation>
             <h2>Trade .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>
           </div>

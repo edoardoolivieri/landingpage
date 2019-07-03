@@ -6,8 +6,11 @@
   justify-content: center;
   h1{
     color: $secondColor;
-    font-size: 30px;
+    font-size: 40px;
     transition: all 0.5s;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-weight: bold;
   }
   h1:hover{
     color: $primaryColor;
@@ -15,8 +18,22 @@
   }
 }
 
+.description{
+  font-weight: lighter;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
 .info{
   display: flex;
+  p{
+    margin: 10px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+.fix-margin{
+  margin-left: 0px !important;
 }
 
 .img-home{
@@ -49,8 +66,12 @@
   }
   i{
     font-size: 20px;
-    color:$primaryColor;
+    color:$secondColor;
     transition: all 0.5s;
+  }
+  i:hover{
+    transform: translateY(-4px);
+    color: $primaryColor;
   }
 }
 

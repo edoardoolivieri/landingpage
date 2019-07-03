@@ -16,11 +16,14 @@
 }
 
 .sc-EHOje h1{
-  color: $primaryColor;
+  color: $secondColor;
   transition: all 0.5s;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
 }
 
 .sc-EHOje h1:hover{
-  color: $secondColor;
+  color: $primaryColor;
   transform: translateY(-3px);
 }

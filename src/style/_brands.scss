@@ -1,13 +1,18 @@
+.img-logo{
+  width: 90px;
+  height: 60px;
+}
+
+.logo1{
+  width: 114px;
+}
+
 .container-text{
   h2{
     color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 24px;
     font-weight: bold;
-  }
-  p{
-    color: white;
-    opacity: 0.8;
   }
 }
 
@@ -25,6 +30,7 @@
 
 .box-clothing{
   display: flex;
+  justify-content: space-around;
 }
 
 .img-brands{
@@ -34,12 +40,15 @@
 }
 
 .sc-bZQynM h1{
-  color: $primaryColor;
+  color: $secondColor;
   transition: all 0.5s;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
 }
 
 .sc-bZQynM h1:hover{
-  color: $secondColor;
+  color: $primaryColor;
   transform: translateY(-3px);
 }
 

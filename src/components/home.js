@@ -52,11 +52,11 @@ class Home extends Component {
               <div className="container-home">
                 <h1>Dixit Stock</h1>
                   <div className="info">
-                    <p>Buy.</p>
+                    <p class="fix-margin">Buy.</p>
                     <p>Sell.</p>
                     <p>Trade.</p>
                   </div>
-                <p>
+                <p class="description">
                   Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet, suscipit gravida diam. Praesent nulla velit, dictum vitae sollicitudin at, egestas sed nisi.
                 </p>
                 <button type="button" className="btn-first-section">

@@ -21,6 +21,24 @@
   }
   .card{
     margin-bottom: 20px;
+    h2{
+      font-size: 16px;
+    }
+    p{
+      font-size: 10px;
+    }
+  }
+  .img-section {
+    width: 160px;
+  }
+  .sc-EHOje{
+    h1{
+      font-size: 20px;
+    }
+  }
+
+  .cVcCsE h1 {
+    margin: 50px 0px 50px 0px !important;
   }
 
   /*Brands*/
@@ -30,7 +48,7 @@
     justify-content: center;
   }
   .img-logo{
-    width: 60px;
+    width: 80px;
     height: 40px;
   }
   .first-brands{
@@ -40,11 +58,11 @@
   }
   .eWjRhO {
     width: 100% !important;
-    padding: 50px 60px !important;
+    padding: 50px 84px !important;
   }
   .img-brands {
-    width: 120px;
-    height: 100px;
+    width: 160px;
+    height: 120px;
     margin: 16px;
   }
   .jytEFL {
@@ -58,6 +76,15 @@
     flex-flow: column-reverse;
   }
 
+  .sc-bZQynM{
+    h1{
+      font-size: 20px;
+    }
+  }
+  .kfpyuO{
+    margin: 10px;
+  }
+
   /*Home*/
   .sc-bdVaJa{
     flex-direction: column;
@@ -67,7 +94,7 @@
     margin: 0px !important;
   }
   .container-home{
-    height: 200px;
+    height: 248px;
     h1{
       font-size: 20px;
       text-align: center;
@@ -96,9 +123,9 @@
     width: 80% !important;
   }
   .img-sneaker {
-    width: 5px;
+    width: 8px;
     margin-top: 0px;
-    height: 150px;
+    height: 180px;
   }
   .img-scroll {
       width: 8px;
@@ -111,5 +138,8 @@
     a{
       margin: 2px 0px;
     }
+  }
+  .jpMHPc {
+    min-height: 73vh !important;
   }
 }

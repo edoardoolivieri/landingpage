@@ -39,12 +39,12 @@
     align-items: center;
   }
   .eWjRhO {
-    width: 100%;
-    padding: 50px 150px;
+    width: 100% !important;
+    padding: 50px 60px !important;
   }
   .img-brands {
-    width: 160px;
-    height: 118px;
+    width: 120px;
+    height: 100px;
     margin: 16px;
   }
   .jytEFL {
@@ -86,18 +86,29 @@
     text-align: center;
   }
 
-  .btn-first-section p{
-    font-size: 7px;
+  .btn-first-section{
+    padding: 3px 25px;
+    p{
+      font-size: 7px;
+    }
   }
   .fSMQli {
     width: 80% !important;
   }
   .img-sneaker {
-    width: 8px;
-    margin-top: 72px;
+    width: 7px;
+    margin-top: 50px;
   }
   .img-scroll {
       width: 8px;
       margin-top: 0px;
+  }
+  .social{
+    i{
+      font-size: 15px;
+    }
+    a{
+      margin: 2px 0px;
+    }
   }
 }

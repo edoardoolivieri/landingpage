@@ -100,7 +100,7 @@ class Brands extends Component {
             </Containercloth>
           </Clothing>
         </div>
-        <div className="first-brands">
+        <div className="first-brands second-brands">
           <Sneakers>
             <Containercloth>
               <div className="box-clothing">

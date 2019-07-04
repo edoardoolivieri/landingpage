@@ -1,0 +1,95 @@
+// /* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {...}
+
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {...}
+
+// /* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 768px) {...}
+
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {...}
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {...}
+
+@media only screen and (max-width: 600px) {
+
+  /*Service*/
+  .sc-ifAKCX{
+    flex-direction: column;
+  }
+  .card{
+    margin-bottom: 20px;
+  }
+
+  /*Brands*/
+  .sc-gZMcBi{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-logo{
+    width: 60px;
+    height: 40px;
+  }
+  .first-brands{
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .eWjRhO {
+    width: 100%;
+    padding: 50px 150px;
+  }
+  .img-brands {
+    width: 160px;
+    height: 118px;
+    margin: 16px;
+  }
+  .jytEFL {
+    width: 100%;
+    margin: 20px 0px 0px 0px!important;
+  }
+  .sc-dnqmqq{
+    margin: 20px 0px 0px 0px !important;
+  }
+  .second-brands{
+    flex-flow: column-reverse;
+  }
+
+  /*Home*/
+  .sc-bdVaJa{
+    flex-direction: column;
+    padding: 0px !important;
+  }
+  .sc-htpNat{
+    margin: 0px !important;
+  }
+  .container-home{
+    height: 200px;
+    h1{
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+  .info p{
+    font-size: 14px;
+  }
+
+  .info{
+    justify-content: center;
+  }
+
+  .description {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .btn-first-section p{
+    font-size: 7px;
+  }
+  .fSMQli {
+    width: 80% !important;
+  }
+}

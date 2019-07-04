@@ -55,7 +55,7 @@ class Home extends Component {
           <Content>
             <ScrollAnimation animateIn='fadeInUp'>
               <div className="container-home">
-                <h1>Dixit Stock</h1>
+                <h1>Dixit Store</h1>
                   <div className="info">
                     <p className="fix-margin">Buy.</p>
                     <p>Sell.</p>

@@ -13,7 +13,8 @@
 // /* Extra large devices (large laptops and desktops, 1200px and up) */
 // @media only screen and (min-width: 1200px) {...}
 
-@media only screen and (max-width: 600px) {
+@media (min-width: 320px) and (max-width: 767px) {
+
 
   /*Service*/
   .sc-ifAKCX{
@@ -41,6 +42,8 @@
     margin: 50px 0px 50px 0px !important;
   }
 
+
+
   /*Brands*/
   .sc-gZMcBi{
     flex-direction: column;
@@ -49,7 +52,7 @@
   }
   .img-logo{
     width: 80px;
-    height: 40px;
+    height: 50px;
   }
   .first-brands{
     justify-content: center;
@@ -84,6 +87,8 @@
   .kfpyuO{
     margin: 10px;
   }
+
+
 
   /*Home*/
   .sc-bdVaJa{
@@ -141,5 +146,56 @@
   }
   .jpMHPc {
     min-height: 73vh !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .img-section {
+      width: 180px;
+  }
+  .jpMHPc {
+      min-height: 65vh !important;
+  }
+  .card{
+    h2{
+      font-size: 20px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+  .img-logo {
+    width: 50px;
+    height: 44px;
+  }
+  .img-brands {
+    width: 160px;
+    height: 130px;
+    margin: 25px 7px;
+  }
+  .eWjRhO{
+    padding: 8px 89px;
+  }
+  .jytEFL {
+    margin: 0px 0px 0px 26px !important;
+  }
+  .fUnsXx{
+    margin: 0px 26px 0px 0px !important;
+  }
+  .snoHk{
+    margin: 200px 10px 50px 10px !important;
+  }
+  .container-home{
+    h1{
+      font-size: 32px;
+    }
+  }
+  .info{
+    p{
+      font-size: 16px;
+    }
+  }
+  .description{
+    font-size: 8px;
   }
 }

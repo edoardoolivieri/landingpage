@@ -26,6 +26,7 @@ const Img = styled.div`
 const Content = styled.div`
   width: 44%;
 `
+
 class Home extends Component {
   render(){
     return(

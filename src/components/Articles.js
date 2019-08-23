@@ -16,12 +16,7 @@ class Articles extends Component {
   componentDidMount() {
     fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=sneakers&api-key=${API_KEY}`)
       .then(response => response.json())
-      .then(data => {
-        this.setState({
-          articles: data.articles,
-          isLoaded: true,
-        })
-    });
+      .then(data => this.setState({ articles: data.articles, isLoaded: true }));
   }
   render(){
     const { isLoaded, articles } = this.state;
@@ -32,7 +27,6 @@ class Articles extends Component {
       return(
         <div>
           <ul>
-
           </ul>
         </div>
       );

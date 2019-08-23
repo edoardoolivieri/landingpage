@@ -8,6 +8,7 @@ import Home from './components/home';
 import Service from './components/service';
 import Brands from './components/brands';
 import Footer from './components/footer';
+import Articles from './components/Articles';
 
 const Section = styled.div`
   min-height: auto;
@@ -40,11 +41,15 @@ const Nav = styled.div`
   }
 `
 
+
 class App extends Component{
   constructor(props){
      super(props)
      //creates a reference for your element to use
      this.myDivService = React.createRef()
+     this.state = {
+      articles: [],
+     }
   }
 
   handleOnClick = (event) => {
@@ -56,6 +61,7 @@ class App extends Component{
         })
     }
   }
+
 
   render(){
     return(
@@ -77,6 +83,9 @@ class App extends Component{
         </Section>
         <Section>
           <Brands />
+        </Section>
+        <Section>
+          <Articles />
         </Section>
         <Footer />
       </AppWrapper>

@@ -41,16 +41,17 @@ class Articles extends Component{
         <div className="card" id={article[0]._id}>
           <div className="content">
             <div className="header">
-              <a href={article[0].web_url}>{article[0].headline.main}</a>
+              <a href={article[0].web_url} rel="noopener noreferrer" target="_blank">{article[0].headline.main}</a>
             </div>
             <div className="description">{article[0].snippet}</div>
+            <div>{article[0].multimedia[0].url}</div>
             <br />
           </div>
         </div>
         <div className="card" id={article[1]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[1].web_url}>{article[1].headline.main}</a>
+            <a href={article[1].web_url} rel="noopener noreferrer" target="_blank">{article[1].headline.main}</a>
           </div>
           <div className="description">{article[1].snippet}</div>
           <br />
@@ -59,7 +60,7 @@ class Articles extends Component{
         <div className="card" id={article[2]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[2].web_url}>{article[2].headline.main}</a>
+            <a href={article[2].web_url} rel="noopener noreferrer" target="_blank">{article[2].headline.main}</a>
           </div>
           <div className="description">{article[2].snippet}</div>
           <br />
@@ -68,7 +69,7 @@ class Articles extends Component{
         <div className="card" id={article[3]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[3].web_url}>{article[3].headline.main}</a>
+            <a href={article[3].web_url} rel="noopener noreferrer" target="_blank">{article[3].headline.main}</a>
           </div>
           <div className="description">{article[3].snippet}</div>
           <br />
@@ -77,7 +78,7 @@ class Articles extends Component{
         <div className="card" id={article[4]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[4].web_url}>{article[4].headline.main}</a>
+            <a href={article[4].web_url} rel="noopener noreferrer" target="_blank">{article[4].headline.main}</a>
           </div>
           <div className="description">{article[4].snippet}</div>
           <br />
@@ -86,7 +87,7 @@ class Articles extends Component{
         <div className="card" id={article[5]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[5].web_url}>{article[5].headline.main}</a>
+            <a href={article[5].web_url} rel="noopener noreferrer" target="_blank">{article[5].headline.main}</a>
           </div>
           <div className="description">{article[5].snippet}</div>
           <br />
@@ -95,7 +96,7 @@ class Articles extends Component{
         <div className="card" id={article[6]._id}>
           <div className="content">
           <div className="header">
-            <a href={article[6].web_url}>{article[6].headline.main}</a>
+            <a href={article[6].web_url} rel="noopener noreferrer" target="_blank">{article[6].headline.main}</a>
           </div>
           <div className="description">{article[6].snippet}</div>
           <br />
@@ -104,7 +105,7 @@ class Articles extends Component{
         <div className="card" id={article[7]._id}>
           <div className="content">
             <div className="header">
-              <a href={article[7].web_url}>{article[7].headline.main}</a>
+              <a href={article[7].web_url} rel="noopener noreferrer" target="_blank">{article[7].headline.main}</a>
             </div>
             <div className="description">{article[7].snippet}</div>
             <br />
@@ -115,7 +116,7 @@ class Articles extends Component{
     return(
       <News>
       <h1>NEWS</h1>
-      <p>NYT News About Virgil Abloh the creator of Off-White</p>
+      <p>NYT News About Virgil Abloh the creator of " Off-White "</p>
         {listItems}
       </News>
 

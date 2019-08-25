@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ScrollAnimation from 'react-animate-on-scroll';
 // import { Sticky, StickyContainer  } from 'react-sticky';
 
 const News = styled.div`
+  margin: 200px 50px 50px 50px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  p{
-    margin: 0px 10px;
-    font-weight: lighter;
-    font-size: 13px;
-    cursor: pointer;
-  }
 `
-
 
 
 const API_KEY = "llY2uvUgpY3CwpbBaMhheh47FQJSDMhI";
@@ -26,11 +19,10 @@ class Articles extends Component{
   }
 
   componentDidMount(){
-    fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=virgil&api-key=${API_KEY}`)
+    fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Virgil&api-key=${API_KEY}`)
       .then(res => res.json())
       .then((data) => {
       this.setState({ articles: [data.response.docs] })
-      console.log(this.state)
     })
       .catch(console.log)
   }
@@ -44,7 +36,7 @@ class Articles extends Component{
               <a href={article[0].web_url} rel="noopener noreferrer" target="_blank">{article[0].headline.main}</a>
             </div>
             <div className="description">{article[0].snippet}</div>
-            <div>{article[0].multimedia[0].url}</div>
+            <div></div>
             <br />
           </div>
         </div>
@@ -117,7 +109,7 @@ class Articles extends Component{
       <News>
       <h1>NEWS</h1>
       <p>NYT News About Virgil Abloh the creator of " Off-White "</p>
-        {listItems}
+      <div>{listItems}</div>
       </News>
 
     )

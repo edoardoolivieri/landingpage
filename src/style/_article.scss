@@ -1,0 +1,24 @@
+.img-article{
+  height: 200px;
+  width: 100%;
+}
+
+.sc-gqjmRU{
+  h1{
+    text-align: center;
+    color: $secondColor;
+  }
+  p{
+    margin-bottom: 60px;
+  }
+}
+
+.header a{
+  text-decoration: none;
+  color: $secondColor;
+}
+
+.header a:hover{
+  text-decoration: none;
+  color: $primaryColor;
+}

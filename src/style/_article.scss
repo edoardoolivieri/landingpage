@@ -7,10 +7,19 @@
   h1{
     text-align: center;
     color: $secondColor;
+    transition: all 0.5s;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
   }
   p{
     margin-bottom: 60px;
   }
+}
+
+.sc-gqjmRU h1:hover{
+  color: $primaryColor;
+  transform: translateY(-3px);
 }
 
 .header a{

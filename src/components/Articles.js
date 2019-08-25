@@ -107,7 +107,7 @@ class Articles extends Component{
     );
     return(
       <News>
-      <h1>NEWS</h1>
+      <h1>News.</h1>
       <p>NYT News About Virgil Abloh the creator of " Off-White "</p>
       <div>{listItems}</div>
       </News>

@@ -45,6 +45,9 @@ class Home extends Component {
             <a href="https://github.com/Dixit-Appear" rel="noopener noreferrer" target="_blank">
               <i className=" fab fa-github"></i>
             </a>
+            <a href="https://dixit-appear.github.io/portfolio/" rel="noopener noreferrer" target="_blank">
+              <i class="fas fa-id-card"></i>
+            </a>
           </div>
         </div>
         <Container>

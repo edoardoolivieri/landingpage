@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import banner from '../images/banneroff.png';
+import banner from '../images/supremebanner.png';
 import img1 from '../images/bapefront.png';
 import img2 from '../images/off-whiteback.png';
 import img3 from '../images/supreme2.png';
@@ -20,6 +20,12 @@ import img11 from '../images/logo3.png';
 import img12 from '../images/logo4.png';
 import img13 from '../images/logo5.png';
 
+const DescriptProduct = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 const Mainbrands = styled.div`
   margin: 250px 50px 50px 50px;
@@ -72,7 +78,6 @@ class Brands extends Component {
       <Mainbrands>
         <h1>Brands.</h1>
         <Brandslogo>
-          <Image src={img9} alt="logo" className="img-logo logo1" />
           <Image src={img10} alt="logo" className="img-logo" />
           <Image src={img11} alt="logo" className="img-logo" />
           <Image src={img12} alt="logo" className="img-logo" />
@@ -91,6 +96,7 @@ class Brands extends Component {
             <Containercloth>
               <div className="box-clothing">
                 <Image src={img1} alt="bape" className="img-brands" />
+
                 <Image src={img2} alt="off-white" className="img-brands" />
               </div>
               <div className="box-clothing">

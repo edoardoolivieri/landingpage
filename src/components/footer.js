@@ -21,7 +21,7 @@ class Service extends Component {
           <Image src={payment} alt="kaws" className="img-payment" />
         </div>
         <div className="copyright">
-          <h2>" Dixit Appear "</h2>
+          <h2>DS</h2>
           <p>copyright ©2019, Edoardo Olivieri</p>
         </div>
       </Footer>

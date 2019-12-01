@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
-import Sell from '../images/sell.png';
-import Buy from '../images/buy.png';
-import Trade from '../images/trade.png';
+import Sell from './images/sell.png';
+import Buy from './images/buy.png';
+import Trade from './images/trade.png';
 
 import ScrollAnimation from 'react-animate-on-scroll';
 

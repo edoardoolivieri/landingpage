@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import banner from '../images/supremebanner.png';
-import img1 from '../images/bapefront.png';
-import img2 from '../images/off-whiteback.png';
-import img3 from '../images/supreme2.png';
-import img4 from '../images/kaws.png';
+import banner from './images/supremebanner.png';
+import img1 from './images/bapefront.png';
+import img2 from './images/off-whiteback.png';
+import img3 from './images/supreme2.png';
+import img4 from './images/kaws.png';
 
-import banner2 from '../images/banner6.png';
-import img5 from '../images/offwhiteshoes.png';
-import img6 from '../images/travisshoes.png';
-import img7 from '../images/sacaishoes.png';
-import img8 from '../images/drakeshoes.png';
+import banner2 from './images/banner6.png';
+import img5 from './images/offwhiteshoes.png';
+import img6 from './images/travisshoes.png';
+import img7 from './images/sacaishoes.png';
+import img8 from './images/drakeshoes.png';
 
-import img9 from '../images/logo1.png';
-import img10 from '../images/logo2.png';
-import img11 from '../images/logo3.png';
-import img12 from '../images/logo4.png';
-import img13 from '../images/logo5.png';
+import img9 from './images/logo1.png';
+import img10 from './images/logo2.png';
+import img11 from './images/logo3.png';
+import img12 from './images/logo4.png';
+import img13 from './images/logo5.png';
 
 const DescriptProduct = styled.div`
   display: flex;

@@ -31,3 +31,12 @@
   text-decoration: none;
   color: $primaryColor;
 }
+
+.content{
+  width: 100%;
+  border-bottom: 1px solid;
+  padding: 32px 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

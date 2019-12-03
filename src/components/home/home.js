@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
-import Nike from '../images/airforce2.jpg';
-import Sneakers from '../images/sneakers.png';
-import Scroll from '../images/scroll.png';
+import Nike from './images/airforce2.jpg';
+import Sneakers from './images/sneakers.png';
+import Scroll from './images/scroll.png';
 
 import ScrollAnimation from 'react-animate-on-scroll';
 

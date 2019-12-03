@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import payment from '../images/payment.png';
+import payment from './images/payment.png';
 
 const Footer = styled.div`
   display: flex;

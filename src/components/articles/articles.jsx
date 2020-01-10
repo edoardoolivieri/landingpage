@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
+import Loading from "../Loading.jsx"
 
 const News = styled.div`
   margin: 200px 50px 50px 50px;
@@ -43,7 +44,7 @@ class Articles extends Component{
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <Loading/>;
     } else {
       return (
         <div>

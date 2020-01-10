@@ -18,7 +18,7 @@ export default class Stockx extends Component {
     componentDidMount() {
         const stockxAPI = require('stockx-api');
         const stockX = new stockxAPI();
-        stockX.searchProducts('Jordan 1 travis scott', {
+        stockX.searchProducts('Dunk', {
             limit: 3
         })
             .then((result) => {
@@ -69,7 +69,7 @@ export default class Stockx extends Component {
             return <Loading />;
         } else {
             return (
-                <Container>
+                <Container >
 
                     <div className="" style={{ margin: "50px" }}>
                         <Navbar />
@@ -77,17 +77,18 @@ export default class Stockx extends Component {
 
                     <h1>Top Product of the month</h1>
                     {sneakers.map(sneaker => (
-                        <div>
-                            <p>{sneaker.name}</p>
-                            <img src={sneaker.image} alt="" style={{ width: "50px" }} />
-                            <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>link</a>
+                        <div className="" style={{margin: "50px"}}>
+                            <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>
+                                <p>{sneaker.name}</p>
+                            </a>
+                            <img src={sneaker.image} alt="" style={{ width: "150px" }} />
                             <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
                         </div>
                     ))}
 
                     <h1>Search your favorite item on Stockx</h1>
                     <SearchBar searchFunction={this.search}/>
-                    <div>
+                    <div style={{height: "100vh"}}>
                         {
                             sneakersSrc ? sneakersSrc.map(sneaker => (
                                 <div>

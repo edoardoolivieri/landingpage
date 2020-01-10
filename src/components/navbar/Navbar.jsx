@@ -9,15 +9,17 @@ const Navbar = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 30px;
+  z-index: 1;
 `
 const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-  p{
+  a{
     margin: 0px 10px;
-    font-weight: lighter;
     font-size: 13px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
   }
 `
 

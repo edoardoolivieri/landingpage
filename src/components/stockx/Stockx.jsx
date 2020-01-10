@@ -1,10 +1,12 @@
 import React, { Component } from "react"
-import { Container } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import Loading from "../Loading.jsx"
 import Navbar from "../navbar/Navbar.jsx"
 import SearchBar from "../Search-bar.jsx";
 import moment from 'moment';
 
+const stockxAPI = require('stockx-api');
+const stockX = new stockxAPI();
 export default class Stockx extends Component {
     constructor(props) {
         super(props);
@@ -16,10 +18,9 @@ export default class Stockx extends Component {
     }
 
     componentDidMount() {
-        const stockxAPI = require('stockx-api');
-        const stockX = new stockxAPI();
         stockX.searchProducts('Dunk', {
-            limit: 3
+            limit: 3,
+            currency: 'USD'
         })
             .then((result) => {
                 this.setState({
@@ -37,12 +38,11 @@ export default class Stockx extends Component {
     }
 
     search = (query) => {
-        const stockxAPI = require('stockx-api');
-        const stockX = new stockxAPI();
         stockX.searchProducts((query), {
             q: query,
             rating: 'g',
-            limit: 5
+            limit: 3,
+            currency: 'USD'
         })
             .then((products) => {
                 this.setState({
@@ -61,48 +61,43 @@ export default class Stockx extends Component {
 
     render() {
         const { error, isLoaded, sneakers, sneakersSrc } = this.state;
-        console.log(sneakers)
-        console.log(sneakersSrc)
-        if (error) {
-            return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-            return <Loading />;
-        } else {
-            return (
-                <Container >
-
-                    <div className="" style={{ margin: "50px" }}>
-                        <Navbar />
-                    </div>
-
-                    <h1>Top Product of the month</h1>
-                    {sneakers.map(sneaker => (
-                        <div className="" style={{margin: "50px"}}>
-                            <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>
-                                <p>{sneaker.name}</p>
-                            </a>
-                            <img src={sneaker.image} alt="" style={{ width: "150px" }} />
-                            <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
-                        </div>
-                    ))}
-
-                    <h1>Search your favorite item on Stockx</h1>
-                    <SearchBar searchFunction={this.search}/>
-                    <div style={{height: "100vh"}}>
+        return (
+            <Container >
+                <Navbar />
+                <Row className="mt-100">
+                    <h3>Top Product of the month</h3>
+                    <div className="top-product">
                         {
-                            sneakersSrc ? sneakersSrc.map(sneaker => (
-                                <div>
-                                    <p>{sneaker.name}</p>
-                                    <img src={sneaker.image} alt="" style={{ width: "50px" }} />
-                                    <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>link</a>
-                                    <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
-                                </div>
-                            )) : ""
+                            !isLoaded ? <Loading /> :
+                                sneakers.map(sneaker => (
+                                    <div className="product" style={{ margin: "50px" }}>
+                                        <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>
+                                            <p>{sneaker.name}</p>
+                                        </a>
+                                        <img src={sneaker.image} alt="" style={{ width: "150px" }} />
+                                        <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
+                                    </div>
+                                ))
                         }
                     </div>
+                </Row>
+                <h3>Search your favorite item on Stockx</h3>
+                <SearchBar searchFunction={this.search} />
+                <div className="top-product">
+                    {
+                        sneakersSrc ? sneakersSrc.map(sneaker => (
+                            <div className="product" style={{ margin: "50px" }}>
+                                <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}>
+                                    <p>{sneaker.name}</p>
+                                </a>
+                                <img src={sneaker.image} alt="" style={{ width: "150px" }} />
+                                <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
+                            </div>
+                        )) : ""
+                    }
+                </div>
 
-                </Container>
-            )
-        }
+            </Container>
+        )
     }
 }

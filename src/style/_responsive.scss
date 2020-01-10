@@ -1,210 +1,210 @@
-// /* Extra small devices (phones, 600px and down) */
-// @media only screen and (max-width: 600px) {...}
+// // /* Extra small devices (phones, 600px and down) */
+// // @media only screen and (max-width: 600px) {...}
 
-// /* Small devices (portrait tablets and large phones, 600px and up) */
-// @media only screen and (min-width: 600px) {...}
+// // /* Small devices (portrait tablets and large phones, 600px and up) */
+// // @media only screen and (min-width: 600px) {...}
 
-// /* Medium devices (landscape tablets, 768px and up) */
-// @media only screen and (min-width: 768px) {...}
+// // /* Medium devices (landscape tablets, 768px and up) */
+// // @media only screen and (min-width: 768px) {...}
 
-// /* Large devices (laptops/desktops, 992px and up) */
-// @media only screen and (min-width: 992px) {...}
+// // /* Large devices (laptops/desktops, 992px and up) */
+// // @media only screen and (min-width: 992px) {...}
 
-// /* Extra large devices (large laptops and desktops, 1200px and up) */
-// @media only screen and (min-width: 1200px) {...}
+// // /* Extra large devices (large laptops and desktops, 1200px and up) */
+// // @media only screen and (min-width: 1200px) {...}
 
-@media (min-width: 320px) and (max-width: 767px) {
-
-
-  /*Service*/
-  .sc-ifAKCX{
-    flex-direction: column;
-  }
-  .card{
-    margin-bottom: 20px;
-    h2{
-      font-size: 16px;
-    }
-    p{
-      font-size: 10px;
-    }
-  }
-  .img-section {
-    width: 160px;
-  }
-  .sc-EHOje{
-    h1{
-      font-size: 20px;
-    }
-  }
-
-  .cVcCsE h1 {
-    margin: 50px 0px 50px 0px !important;
-  }
+// @media (min-width: 320px) and (max-width: 767px) {
 
 
+//   /*Service*/
+//   .sc-ifAKCX{
+//     flex-direction: column;
+//   }
+//   .card{
+//     margin-bottom: 20px;
+//     h2{
+//       font-size: 16px;
+//     }
+//     p{
+//       font-size: 10px;
+//     }
+//   }
+//   .img-section {
+//     width: 160px;
+//   }
+//   .sc-EHOje{
+//     h1{
+//       font-size: 20px;
+//     }
+//   }
 
-  /*Brands*/
-  .sc-gZMcBi{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .img-logo{
-    width: 80px;
-    height: 50px;
-  }
-  .first-brands{
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .eWjRhO {
-    width: 100% !important;
-    padding: 50px 84px !important;
-  }
-  .img-brands {
-    width: 160px;
-    height: 120px;
-    margin: 16px;
-  }
-  .jytEFL {
-    width: 100%;
-    margin: 20px 0px 0px 0px!important;
-  }
-  .sc-dnqmqq{
-    margin: 20px 0px 0px 0px !important;
-  }
-  .second-brands{
-    flex-flow: column-reverse;
-  }
-
-  .sc-bZQynM{
-    h1{
-      font-size: 20px;
-    }
-  }
-  .kfpyuO{
-    margin: 10px;
-  }
-
-  .sc-gqjmRU{
-    h1{
-      font-size: 20px;
-    }
-    p{
-      font-size: 10px;
-    }
-  }
+//   .cVcCsE h1 {
+//     margin: 50px 0px 50px 0px !important;
+//   }
 
 
 
-  /*Home*/
-  .sc-bdVaJa{
-    flex-direction: column;
-    padding: 0px !important;
-  }
-  .sc-htpNat{
-    margin: 0px !important;
-  }
-  .container-home{
-    height: 248px;
-    h1{
-      font-size: 20px;
-      text-align: center;
-    }
-  }
-  .info p{
-    font-size: 14px;
-  }
+//   /*Brands*/
+//   .sc-gZMcBi{
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//   }
+//   .img-logo{
+//     width: 80px;
+//     height: 50px;
+//   }
+//   .first-brands{
+//     justify-content: center;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+//   .eWjRhO {
+//     width: 100% !important;
+//     padding: 50px 84px !important;
+//   }
+//   .img-brands {
+//     width: 160px;
+//     height: 120px;
+//     margin: 16px;
+//   }
+//   .jytEFL {
+//     width: 100%;
+//     margin: 20px 0px 0px 0px!important;
+//   }
+//   .sc-dnqmqq{
+//     margin: 20px 0px 0px 0px !important;
+//   }
+//   .second-brands{
+//     flex-flow: column-reverse;
+//   }
 
-  .info{
-    justify-content: center;
-  }
+//   .sc-bZQynM{
+//     h1{
+//       font-size: 20px;
+//     }
+//   }
+//   .kfpyuO{
+//     margin: 10px;
+//   }
 
-  .description {
-    font-size: 10px;
-    text-align: center;
-  }
+//   .sc-gqjmRU{
+//     h1{
+//       font-size: 20px;
+//     }
+//     p{
+//       font-size: 10px;
+//     }
+//   }
 
-  .btn-first-section{
-    padding: 3px 25px;
-    p{
-      font-size: 7px;
-    }
-  }
-  .fSMQli {
-    width: 80% !important;
-  }
-  .img-sneaker {
-    width: 8px;
-    margin-top: 0px;
-    height: 180px;
-  }
-  .img-scroll {
-      width: 8px;
-      margin-top: 0px;
-  }
-  .social{
-    i{
-      font-size: 15px;
-    }
-    a{
-      margin: 2px 0px;
-    }
-  }
-  .jpMHPc {
-    min-height: 73vh !important;
-  }
-}
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .img-section {
-      width: 180px;
-  }
-  .jpMHPc {
-      min-height: 65vh !important;
-  }
-  .card{
-    h2{
-      font-size: 20px;
-    }
-    p{
-      font-size: 14px;
-    }
-  }
-  .img-logo {
-    width: 50px;
-    height: 44px;
-  }
-  .img-brands {
-    width: 160px;
-    height: 130px;
-    margin: 25px 7px;
-  }
-  .eWjRhO{
-    padding: 8px 89px;
-  }
-  .jytEFL {
-    margin: 0px 0px 0px 26px !important;
-  }
-  .fUnsXx{
-    margin: 0px 26px 0px 0px !important;
-  }
-  .snoHk{
-    margin: 250px 10px 50px 10px !important;
-  }
-  .container-home{
-    h1{
-      font-size: 32px;
-    }
-  }
-  .info{
-    p{
-      font-size: 16px;
-    }
-  }
-  .description{
-    font-size: 8px;
-  }
-}
+
+//   /*Home*/
+//   .sc-bdVaJa{
+//     flex-direction: column;
+//     padding: 0px !important;
+//   }
+//   .sc-htpNat{
+//     margin: 0px !important;
+//   }
+//   .container-home{
+//     height: 248px;
+//     h1{
+//       font-size: 20px;
+//       text-align: center;
+//     }
+//   }
+//   .info p{
+//     font-size: 14px;
+//   }
+
+//   .info{
+//     justify-content: center;
+//   }
+
+//   .description {
+//     font-size: 10px;
+//     text-align: center;
+//   }
+
+//   .btn-first-section{
+//     padding: 3px 25px;
+//     p{
+//       font-size: 7px;
+//     }
+//   }
+//   .fSMQli {
+//     width: 80% !important;
+//   }
+//   .img-sneaker {
+//     width: 8px;
+//     margin-top: 0px;
+//     height: 180px;
+//   }
+//   .img-scroll {
+//       width: 8px;
+//       margin-top: 0px;
+//   }
+//   .social{
+//     i{
+//       font-size: 15px;
+//     }
+//     a{
+//       margin: 2px 0px;
+//     }
+//   }
+//   .jpMHPc {
+//     min-height: 73vh !important;
+//   }
+// }
+
+// @media (min-width: 768px) and (max-width: 1024px) {
+//   .img-section {
+//       width: 180px;
+//   }
+//   .jpMHPc {
+//       min-height: 65vh !important;
+//   }
+//   .card{
+//     h2{
+//       font-size: 20px;
+//     }
+//     p{
+//       font-size: 14px;
+//     }
+//   }
+//   .img-logo {
+//     width: 50px;
+//     height: 44px;
+//   }
+//   .img-brands {
+//     width: 160px;
+//     height: 130px;
+//     margin: 25px 7px;
+//   }
+//   .eWjRhO{
+//     padding: 8px 89px;
+//   }
+//   .jytEFL {
+//     margin: 0px 0px 0px 26px !important;
+//   }
+//   .fUnsXx{
+//     margin: 0px 26px 0px 0px !important;
+//   }
+//   .snoHk{
+//     margin: 250px 10px 50px 10px !important;
+//   }
+//   .container-home{
+//     h1{
+//       font-size: 32px;
+//     }
+//   }
+//   .info{
+//     p{
+//       font-size: 16px;
+//     }
+//   }
+//   .description{
+//     font-size: 8px;
+//   }
+// }

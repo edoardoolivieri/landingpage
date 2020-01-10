@@ -24,16 +24,15 @@ const Imagesupreme = styled.div`
   flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 0 12px;
 `
 
 const Clothing = styled.div`
   width: 50%;
-  margin: 0px 0px 0px 50px;
 `
 
 const Sneakers = styled.div`
   width: 50%;
-  margin: 0px 50px 0px 0px;
 `
 
 const Containercloth = styled.div`

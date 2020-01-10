@@ -1,8 +1,3 @@
-.img-article{
-  height: 200px;
-  width: 100%;
-}
-
 .sc-gqjmRU{
   h1{
     text-align: center;
@@ -39,4 +34,19 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.articles-list{
+  width: 50%;
+  height: 500px;
+  position: sticky;
+  overflow: scroll;
+}
+
+.advertising{
+  width: 50%;
+}
+
+.articles{
+  width: 100%;
 }

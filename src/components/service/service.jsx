@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
-import Sell from './images/sell.png';
-import Buy from './images/buy.png';
-import Trade from './images/trade.png';
-
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const Cards = styled.div`
@@ -29,21 +25,21 @@ class Service extends Component {
         <Cards>
           <div className="card">
             <ScrollAnimation animateIn='fadeInDown'>
-            <Image src={Sell} alt="Sell ." className="img-section" />
+            <Image src={`${process.env.PUBLIC_URL}/images/sell.png`} alt="Sell ." className="img-section" />
             </ScrollAnimation>
             <h2>Sell .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>
           </div>
           <div className="card">
             <ScrollAnimation animateIn='fadeInDown'>
-            <Image src={Buy} alt="Sell ." className="img-section" />
+            <Image src={`${process.env.PUBLIC_URL}/images/buy.png`} alt="Sell ." className="img-section" />
             </ScrollAnimation>
             <h2>Buy .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>
           </div>
           <div className="card">
             <ScrollAnimation animateIn='fadeInDown'>
-            <Image src={Trade} alt="Sell ." className="img-section" />
+            <Image src={`${process.env.PUBLIC_URL}/images/trade.png`} alt="Sell ." className="img-section" />
             </ScrollAnimation>
             <h2>Trade .</h2>
             <p>Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet.</p>

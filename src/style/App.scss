@@ -14,3 +14,31 @@ $secondColor: #e0bb20;
 body{
   font-family: 'Exo 2', sans-serif;
 }
+
+button:focus {
+  /* outline: 1px dotted; */
+  outline: 0px auto -webkit-focus-ring-color !important;
+}
+
+.mt-100{margin-top: 100px;}
+
+
+
+
+
+
+
+
+
+// Stock Css to move in stockx.scss
+
+.top-product{
+  display: flex;
+}
+
+.product{
+  text-align: center;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  padding: 12px;
+  width: 100%;
+}

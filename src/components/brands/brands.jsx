@@ -2,31 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import banner from './images/supremebanner.png';
-import img1 from './images/bapefront.png';
-import img2 from './images/off-whiteback.png';
-import img3 from './images/supreme2.png';
-import img4 from './images/kaws.png';
-
-import banner2 from './images/banner6.png';
-import img5 from './images/offwhiteshoes.png';
-import img6 from './images/travisshoes.png';
-import img7 from './images/sacaishoes.png';
-import img8 from './images/drakeshoes.png';
-
-import img9 from './images/logo1.png';
-import img10 from './images/logo2.png';
-import img11 from './images/logo3.png';
-import img12 from './images/logo4.png';
-import img13 from './images/logo5.png';
-
-const DescriptProduct = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
 const Mainbrands = styled.div`
   margin: 250px 50px 50px 50px;
   display: flex;
@@ -49,16 +24,15 @@ const Imagesupreme = styled.div`
   flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 0 12px;
 `
 
 const Clothing = styled.div`
   width: 50%;
-  margin: 0px 0px 0px 50px;
 `
 
 const Sneakers = styled.div`
   width: 50%;
-  margin: 0px 50px 0px 0px;
 `
 
 const Containercloth = styled.div`
@@ -78,13 +52,13 @@ class Brands extends Component {
       <Mainbrands>
         <h1>Brands.</h1>
         <Brandslogo>
-          <Image src={img10} alt="logo" className="img-logo" />
-          <Image src={img11} alt="logo" className="img-logo" />
-          <Image src={img12} alt="logo" className="img-logo" />
-          <Image src={img13} alt="logo" className="img-logo" />
+          <Image src={`${process.env.PUBLIC_URL}/images/logo2.png`} alt="logo" className="img-logo" />
+          <Image src={`${process.env.PUBLIC_URL}/images/logo3.png`} alt="logo" className="img-logo" />
+          <Image src={`${process.env.PUBLIC_URL}/images/logo4.png`} alt="logo" className="img-logo" />
+          <Image src={`${process.env.PUBLIC_URL}/images/logo5.png`} alt="logo" className="img-logo" />
         </Brandslogo>
         <div className="first-brands">
-          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${banner})` }}>
+          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${process.env.PUBLIC_URL}/images/supremebanner.png)` }}>
             <div className="container-text">
               <h2>Buy Exclusive Clothes.</h2>
               <button type="button" className="btn-brands-section">
@@ -95,13 +69,12 @@ class Brands extends Component {
           <Clothing>
             <Containercloth>
               <div className="box-clothing">
-                <Image src={img1} alt="bape" className="img-brands" />
-
-                <Image src={img2} alt="off-white" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/bapefront.png`} alt="bape" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/off-whiteback.png`} alt="off-white" className="img-brands" />
               </div>
               <div className="box-clothing">
-                <Image src={img3} alt="supreme" className="img-brands" />
-                <Image src={img4} alt="kaws" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/supreme2.png`} alt="supreme" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/kaws.png`} alt="kaws" className="img-brands" />
               </div>
             </Containercloth>
           </Clothing>
@@ -110,23 +83,23 @@ class Brands extends Component {
           <Sneakers>
             <Containercloth>
               <div className="box-clothing">
-                <Image src={img5} alt="bape" className="img-brands" />
-                <Image src={img6} alt="off-white" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/offwhiteshoes.png`} alt="bape" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/travisshoes.png`} alt="off-white" className="img-brands" />
               </div>
               <div className="box-clothing">
-                <Image src={img7} alt="supreme" className="img-brands" />
-                <Image src={img8} alt="kaws" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/sacaishoes.png`} alt="supreme" className="img-brands" />
+                <Image src={`${process.env.PUBLIC_URL}/images/drakeshoes.png`} alt="kaws" className="img-brands" />
               </div>
             </Containercloth>
           </Sneakers>
-          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${banner2})` }}>
+          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${process.env.PUBLIC_URL}/images/banner6.png)`}}>
             <div className="container-text">
               <h2>Sell Exclusive Sneakers.</h2>
               <button type="button" className="btn-brands-section">
                 <p>Shop</p>
               </button>
             </div>
-          </Imagesupreme>
+          </Imagesupreme> 
         </div>
       </Mainbrands>
     );

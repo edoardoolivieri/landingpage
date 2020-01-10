@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
-import Nike from './images/airforce2.jpg';
-import Sneakers from './images/sneakers.png';
-import Scroll from './images/scroll.png';
-
 import ScrollAnimation from 'react-animate-on-scroll';
 
 const Container = styled.div`
@@ -33,7 +29,7 @@ class Home extends Component {
       <Maincontainer>
         <div className="content-left">
           <div className="image-sneaker">
-            <Image src={Sneakers} alt="Logo" className="img-sneaker" />
+            <Image src={`${process.env.PUBLIC_URL}/images/scroll.png`} alt="Logo" className="img-sneaker" />
           </div>
           <div className="social">
             <a href="https://www.linkedin.com/in/edoardo-olivieri/" rel="noopener noreferrer" target="_blank">
@@ -46,14 +42,14 @@ class Home extends Component {
               <i className=" fab fa-github"></i>
             </a>
             <a href="https://dixit-appear.github.io/portfolio/" rel="noopener noreferrer" target="_blank">
-              <i class="fas fa-id-card"></i>
+              <i className="fas fa-id-card"></i>
             </a>
           </div>
         </div>
         <Container>
           <Img>
             <ScrollAnimation animateIn='fadeInDown'>
-              <Image src={Nike} alt="Off-white Air force 1 Black" className="img-home" />
+              <Image src={`${process.env.PUBLIC_URL}/images/airforce2.jpg`}  alt="Off-white Air force 1 Black" className="img-home" />
             </ScrollAnimation>
           </Img>
           <Content>
@@ -76,7 +72,7 @@ class Home extends Component {
           </Content>
         </Container>
         <div className="content-right">
-          <Image src={Scroll} alt="Logo" className="img-scroll" />
+          <Image src={`${process.env.PUBLIC_URL}/images/scroll.png`}  alt="Logo" className="img-scroll" />
         </div>
       </Maincontainer>
     );

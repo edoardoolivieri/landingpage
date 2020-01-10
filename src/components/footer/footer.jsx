@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
 
-import payment from './images/payment.png';
-
 const Footer = styled.div`
   display: flex;
   justify-content: center;
@@ -18,7 +16,7 @@ class Service extends Component {
     return(
       <Footer>
         <div className="payment">
-          <Image src={payment} alt="kaws" className="img-payment" />
+          <Image src={`${process.env.PUBLIC_URL}/images/payment.png`} alt="kaws" className="img-payment" />
         </div>
         <div className="copyright">
           <h2>DS</h2>

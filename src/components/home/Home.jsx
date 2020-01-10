@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { Container } from "react-bootstrap"
-import Section1 from "./home"
-import Section2 from "./service"
-import Section3 from "./brands"
-import Section4 from "./articles.jsx"
-import Section5 from "./footer"
+import Section1 from "../banner/banner.jsx"
+import Section2 from "../service/service.jsx"
+import Section3 from "../brands/brands.jsx"
+import Section4 from "../articles/articles.jsx"
+import Section5 from "../footer/footer.jsx"
 import Navbar from "../navbar/Navbar.jsx"
 
 export default class Home extends Component{

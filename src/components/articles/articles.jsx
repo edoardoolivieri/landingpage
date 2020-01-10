@@ -40,7 +40,6 @@ class Articles extends Component{
 
   render() {
     const { error, isLoaded, articles } = this.state;
-    console.log(articles)
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -61,7 +60,6 @@ class Articles extends Component{
                 <div className="d-flex justify-content-center">
                 <p>{moment(article.pub_date).format("DD MMM, YYYY")}</p>
                 <p>{article.section_name}</p>
-                {/* <img src={article.multimedia[0].url} alt=""/> */}
                 </div>  
               </div>
             </div>

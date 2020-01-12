@@ -19,12 +19,15 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <input
-      value={this.state.term}
-      type="text"
-      className="form-search form-control"
-      onChange={this.handleUpdate}
-      />
+      <form>
+        <input
+        value={this.state.term}
+        type="text"
+        className="form-search form-control"
+        placeholder="Search for product"
+        onChange={this.handleUpdate}
+        />
+      </form>
     );
   }
 }

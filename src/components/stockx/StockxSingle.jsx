@@ -9,26 +9,32 @@ const stockX = new stockxAPI();
 export default class StockxSingle extends Component {
     state = {
         loading: true,
-        sneaker: {}
+        sneaker: '',
+        id: this.props.match.params.uuid
+        
     }
+    
 
-    componentDidMount = (sneaker) => {
-        const { uuid } = this.props.match.params
-        let url = `https://stockx.com/${sneaker.urlKey}`
+    // componentDidMount = () => {
+    //     // const { uuid } = this.props.match.params
+    //     let url = `https://stockx.com/${this.sneaker.urlKey}`
+    //     console.log(url)
 
-        stockX.fetchProductDetails(url)
-        .then(product => console.log(product),
-            (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
-            }
-        )
+    //     stockX.fetchProductDetails(url)
+    //     .then(product => console.log(product),
+    //         (error) => {
+    //             this.setState({
+    //                 isLoaded: true,
+    //                 error
+    //             });
+    //         }
+    //     )
 
-    }
+    // }
 
     render() {
+        const {id} = this.state
+        console.log(id)
         return (
             <Container >
                 <Navbar />

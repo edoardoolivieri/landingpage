@@ -45,7 +45,6 @@ export default class Stockx extends Component {
     }
 
     componentDidMount() {
-        const { sneaker } = this.props
         stockX.searchProducts('Dunk', { limit: 3 })
             .then((result) => {
                 this.setState({
@@ -107,7 +106,7 @@ export default class Stockx extends Component {
 }
 
 const SneakerSrc = ({ sneakersSrc }) => (
-    <div className="product" style={{ margin: "50px" }}>
+    <div key={sneakersSrc.uuid} className="product" style={{ margin: "50px" }}>
         <Link href={`/stockx/${sneakersSrc.uuid}`}>
             <p>{sneakersSrc.name}</p>
         </Link>
@@ -117,7 +116,7 @@ const SneakerSrc = ({ sneakersSrc }) => (
 )
 
 const Sneaker = ({ sneaker }) => (
-    <div className="product" style={{ margin: "50px" }}>
+    <div key={sneaker.uuid} className="product" style={{ margin: "50px" }}>
         {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
         <Link to={`/stockx/${sneaker.uuid}`}>
             <p>{sneaker.name}</p>

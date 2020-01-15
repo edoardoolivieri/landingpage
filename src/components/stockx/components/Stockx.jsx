@@ -1,14 +1,12 @@
 import React, { Component } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import Loading from "../Loading.jsx"
-import Loader from "../Loader.jsx"
-import Navbar from "../navbar/Navbar.jsx"
-import SearchBar from "../Search-bar.jsx";
-import Slider from "../Slider.jsx"
+import Loader from "../../Loader.jsx"
+import Navbar from "../../navbar/Navbar.jsx"
+import SearchBar from "../../Search-bar.jsx";
+import Slider from "../../Slider.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"
-import StockxSingle from "./StockxSingle.jsx"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
@@ -21,8 +19,6 @@ export default class Stockx extends Component {
             sneakers: []
         };
     }
-
-
     getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
@@ -44,12 +40,6 @@ export default class Stockx extends Component {
                 }
             )
     }
-
-    componentDidMount() {
-        this.getSneaker()
-        this.getSearch()
-    }
-
     getSneaker = () => {
         stockX.searchProducts('Dunk', { limit: 3 })
             .then((data) => {
@@ -65,6 +55,11 @@ export default class Stockx extends Component {
                     });
                 }
             )
+    }
+
+    componentDidMount() {
+        this.getSneaker()
+        this.getSearch()
     }
 
     render() {

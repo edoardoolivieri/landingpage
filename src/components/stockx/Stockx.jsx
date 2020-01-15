@@ -8,6 +8,7 @@ import Slider from "../Slider.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"
+import StockxSingle from "./StockxSingle.jsx"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
@@ -20,9 +21,9 @@ export default class Stockx extends Component {
             sneakers: []
         };
     }
-    
 
-    search = (query) => {
+
+    getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
             rating: 'g',
@@ -45,11 +46,16 @@ export default class Stockx extends Component {
     }
 
     componentDidMount() {
+        this.getSneaker()
+        this.getSearch()
+    }
+
+    getSneaker = () => {
         stockX.searchProducts('Dunk', { limit: 3 })
-            .then((result) => {
+            .then((data) => {
                 this.setState({
                     isLoaded: true,
-                    sneakers: result
+                    sneakers: data
                 })
             },
                 (error) => {
@@ -60,11 +66,14 @@ export default class Stockx extends Component {
                 }
             )
     }
+
     render() {
         const { isLoaded, sneakers, sneakersSrc } = this.state;
-
         return (
             <Container >
+                {/* <StockxSingle sneakers={sneakers.name}>
+                    {console.log(sneakers)}
+                </StockxSingle> */}
                 <Navbar />
                 <Row className="mt-100">
                     <Col lg={12}>
@@ -86,7 +95,7 @@ export default class Stockx extends Component {
                 </Row>
                 <Row>
                     <Col lg={12}>
-                        <SearchBar searchFunction={this.search} />
+                        <SearchBar searchFunction={this.getSearch} />
                     </Col>
                 </Row>
                 <Row>
@@ -96,18 +105,15 @@ export default class Stockx extends Component {
                         }
                     </Col>
                 </Row>
-
-
-
-
             </Container>
         )
     }
 }
 
 const SneakerSrc = ({ sneakersSrc }) => (
-    <div key={sneakersSrc.uuid} className="product" style={{ margin: "50px" }}>
-        <Link href={`/stockx/${sneakersSrc.uuid}`}>
+    console.log(sneakersSrc),
+    <div className="product" style={{ margin: "50px" }}>
+        <Link to={`/stockx/${sneakersSrc.uuid}`}>
             <p>{sneakersSrc.name}</p>
         </Link>
         <img src={sneakersSrc.image} alt="" style={{ width: "150px" }} />

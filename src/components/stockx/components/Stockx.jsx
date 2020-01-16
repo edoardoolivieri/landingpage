@@ -7,6 +7,7 @@ import Slider from "../../Slider.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"
+// import StockxSingle from "./StockxSingle.jsx";
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
@@ -19,6 +20,7 @@ export default class Stockx extends Component {
             sneakers: []
         };
     }
+    
     getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
@@ -40,7 +42,7 @@ export default class Stockx extends Component {
                 }
             )
     }
-    getSneaker = () => {
+    getSneaker = (sneakers) => {
         stockX.searchProducts('Dunk', { limit: 3 })
             .then((data) => {
                 this.setState({
@@ -100,6 +102,7 @@ export default class Stockx extends Component {
                         }
                     </Col>
                 </Row>
+                {/* <StockxSingle sneakers={sneakers}/> */}
             </Container>
         )
     }
@@ -126,3 +129,69 @@ const Sneaker = ({ sneaker }) => (
         <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
     </div>
 )
+
+
+
+
+
+// import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+
+// import fetchProductsAction from '../actions/fetchProducts.js';
+// import {getProductsError, getProducts, getProductsPending} from '../reducers/product.js';
+
+// import Loader from "../../Loader.jsx"
+// // import StockxSingle from "./StockxSingle.jsx"
+// // import ProductList from './ProductList';
+
+// class Stockx extends Component {
+//     constructor(props) {
+//         super(props);
+
+//         this.shouldComponentRender = this.shouldComponentRender.bind(this);
+//     }
+
+//     componentWillMount() {
+//         const {fetchProducts} = this.props;
+//         fetchProducts();
+//     }
+
+//     shouldComponentRender() {
+//         const {pending} = this.props;
+//         if(this.pending === false) return false;
+//         // more tests
+//         return true;
+//     }
+
+//     render() {
+//         const {products, error, pending} = this.props;
+
+//         if(!this.shouldComponentRender()) return <Loader />
+
+//         return (
+//             <div className='product-list-wrapper'>
+//                 {error && <span className='product-list-error'>{error}</span>}
+//                 {/* <ProductList products={products} /> */}
+//                 <p>{products.name}</p>
+//             </div>
+//         )
+//     }
+// }
+
+
+// const mapStateToProps = state => ({
+//     error: getProductsError(state),
+//     products: getProducts(state),
+//     pending: getProductsPending(state)
+// })
+
+// const mapDispatchToProps = dispatch => bindActionCreators({
+//     fetchProducts: fetchProductsAction
+// }, dispatch)
+
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )(<Stockx/>);

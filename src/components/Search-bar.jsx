@@ -4,28 +4,36 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ""
+      value: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleUpdate = (event) => {
-    //Change the state of term
-    this.setState({
-      term: event.target.value
-    });
+  // handleUpdate = (event) => {
+  //   //Change the state of term
+  //   event.preventDefault();
+  //   this.props.searchFunction(event.target.value);
+  // };
+
+  handleChange(event) {
+    this.setState({value: event.target.value});    
+  }
+
+  handleSubmit(event) {
+    this.props.searchFunction(this.state.value);
     event.preventDefault();
-    this.props.searchFunction(event.target.value);
-  };
+  }
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
-        value={this.state.term}
+        value={this.state.value}
         type="text"
         className="form-search form-control"
         placeholder="Search for product"
-        onChange={this.handleUpdate}
+        onChange={this.handleChange}
         />
       </form>
     );

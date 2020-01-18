@@ -19,12 +19,15 @@ export default class Stockx extends Component {
             sneakers: []
         };
     }
-    
+    componentDidMount() {
+        this.getSearch()
+        this.getSneaker()
+        this.getSneakersInfo()
+    }
     getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
-            rating: 'g',
-            limit: 12,
+            limit: 20,
             currency: 'GBP'
         })
             .then((products) => {
@@ -58,13 +61,26 @@ export default class Stockx extends Component {
             )
     }
 
-    componentDidMount() {
-        this.getSneaker()
-        this.getSearch()
-    }
+    getSneakersInfo = infos => {
+        stockX.searchProducts('Dunk', { limit: 3 })
+            .then((data) => {
+                this.setState({
+                    isLoaded: true,
+                    infos: data
+                })
+            },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    };
 
     render() {
-        const { isLoaded, sneakers, sneakersSrc } = this.state;
+        const { isLoaded, sneakers, sneakersSrc, infos } = this.state;
+        console.log(infos)
         return (
             <Container >
                 <Navbar />
@@ -96,9 +112,16 @@ export default class Stockx extends Component {
                         {
                             sneakersSrc ? <Slider items={_.map(sneakersSrc, (sneakersSrc) => <SneakerSrc sneakersSrc={sneakersSrc} />)} /> : ""
                         }
+                        {/* {
+                             sneakersSrc ? sneakersSrc.map(sneakersSrc => (
+                                    <SneakerSrc sneakersSrc={sneakersSrc} />
+                                )) :
+                                ""
+                        } */}
                     </Col>
                 </Row>
                 {/* <StockxSingle sneakers={sneakers}/> */}
+                <SneakersInfos infos={infos} />
             </Container>
         )
     }
@@ -123,5 +146,11 @@ const Sneaker = ({ sneaker }) => (
         </Link>
         <img src={sneaker.image} alt="" style={{ width: "150px" }} />
         <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
+    </div>
+)
+
+export const SneakersInfos = ({ infos }) => (
+    <div>
+
     </div>
 )

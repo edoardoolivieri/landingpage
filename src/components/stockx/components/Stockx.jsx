@@ -138,7 +138,8 @@ const SneakerSrc = ({ sneakersSrc }) => (
     </div>
 )
 
-const Sneaker = ({ sneaker }) => (
+export const Sneaker = ({ sneaker }) => (
+    console.log(sneaker.lowestAsk),
     <div key={sneaker.uuid} className="product" style={{ margin: "50px" }}>
         {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
         <Link to={`/stockx/${sneaker.uuid}`}>
@@ -146,6 +147,7 @@ const Sneaker = ({ sneaker }) => (
         </Link>
         <img src={sneaker.image} alt="" style={{ width: "150px" }} />
         <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
+        <p>avarage price : £ {sneaker.market.averageDeadstockPrice}</p>
     </div>
 )
 

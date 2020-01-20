@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import Loader from "../../Loader.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
-import SearchBar from "../../Search-bar.jsx";
+import SearchBar from "../../Search-bar.jsx"
 import Slider from "../../Slider.jsx"
+import Title from "../../Title.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"
@@ -16,14 +17,18 @@ export default class Stockx extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            sneakers: []
+            sneakers: [],
+            sneakersInfos: [],
         };
+        console.log(this.state.sneakersInfos)
     }
+
     componentDidMount() {
         this.getSearch()
         this.getSneaker()
         this.getSneakersInfo()
     }
+    
     getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
@@ -44,8 +49,9 @@ export default class Stockx extends Component {
                 }
             )
     }
+
     getSneaker = (sneakers) => {
-        stockX.searchProducts('Dunk', { limit: 3 })
+        stockX.searchProducts(('dunk'), { limit: 3 })
             .then((data) => {
                 this.setState({
                     isLoaded: true,
@@ -61,12 +67,12 @@ export default class Stockx extends Component {
             )
     }
 
-    getSneakersInfo = infos => {
-        stockX.searchProducts('Dunk', { limit: 3 })
-            .then((data) => {
+    getSneakersInfo = (sneakersInfos) => {
+        stockX.fetchProductDetails('https://stockx.com/nike-dunk-low-off-white-michigan')
+            .then((infos) => {
                 this.setState({
                     isLoaded: true,
-                    infos: data
+                    sneakersInfos: infos
                 })
             },
                 (error) => {
@@ -78,15 +84,22 @@ export default class Stockx extends Component {
             )
     };
 
+    onClick = () => {
+        console.log('test')
+    }
+
     render() {
-        const { isLoaded, sneakers, sneakersSrc, infos } = this.state;
-        console.log(infos)
+        const { isLoaded, sneakers, sneakersSrc, sneakersInfos } = this.state;
+        // console.log(sneakersInfos)
         return (
             <Container >
                 <Navbar />
                 <Row className="mt-100">
                     <Col lg={12}>
-                        <h3>Top Product of the month</h3>
+                        <Title title="Top products of the month">
+                            <p>testing children props</p>
+                        </Title>
+                        <Button onClick={this.onClick}>Nike</Button>
                     </Col>
                     <Col>
                         <div className="top-product">
@@ -110,25 +123,19 @@ export default class Stockx extends Component {
                 <Row>
                     <Col>
                         {
-                            sneakersSrc ? <Slider items={_.map(sneakersSrc, (sneakersSrc) => <SneakerSrc sneakersSrc={sneakersSrc} />)} /> : ""
+                            sneakersSrc ?
+                                <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
+                                    <SneakerSrc sneakersSrc={sneakersSrc} />)} />
+                                : ""
                         }
-                        {/* {
-                             sneakersSrc ? sneakersSrc.map(sneakersSrc => (
-                                    <SneakerSrc sneakersSrc={sneakersSrc} />
-                                )) :
-                                ""
-                        } */}
                     </Col>
                 </Row>
-                {/* <StockxSingle sneakers={sneakers}/> */}
-                <SneakersInfos infos={infos} />
             </Container>
         )
     }
 }
 
 const SneakerSrc = ({ sneakersSrc }) => (
-    console.log(sneakersSrc),
     <div className="product" style={{ margin: "50px" }}>
         <Link to={`/stockx/${sneakersSrc.uuid}`}>
             <p>{sneakersSrc.name}</p>
@@ -139,7 +146,6 @@ const SneakerSrc = ({ sneakersSrc }) => (
 )
 
 export const Sneaker = ({ sneaker }) => (
-    console.log(sneaker.lowestAsk),
     <div key={sneaker.uuid} className="product" style={{ margin: "50px" }}>
         {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
         <Link to={`/stockx/${sneaker.uuid}`}>
@@ -151,8 +157,9 @@ export const Sneaker = ({ sneaker }) => (
     </div>
 )
 
-export const SneakersInfos = ({ infos }) => (
+export const SneakersInfo = ({ sneakersInfo }) => (
+    console.log(sneakersInfo),
     <div>
-
+        sneakersInfo.name
     </div>
 )

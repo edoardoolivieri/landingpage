@@ -8,7 +8,7 @@ export default class StockxSingle extends Component {
         return (
             <Container>
                 <Navbar />
-                {/* <Sneaker sneaker={this.Sneaker} ></Sneaker> */}
+                {/* <Sneaker sneaker={this.state.sneaker} key={this.state.sneaker.uuid}></Sneaker> */}
             </Container>
         )
     }

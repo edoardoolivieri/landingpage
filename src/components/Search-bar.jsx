@@ -10,12 +10,6 @@ export default class SearchBar extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // handleUpdate = (event) => {
-  //   //Change the state of term
-  //   event.preventDefault();
-  //   this.props.searchFunction(event.target.value);
-  // };
-
   handleChange(event) {
     this.setState({value: event.target.value});    
   }

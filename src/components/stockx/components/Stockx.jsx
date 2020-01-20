@@ -28,7 +28,7 @@ export default class Stockx extends Component {
         this.getSneaker()
         this.getSneakersInfo()
     }
-    
+
     getSearch = (query) => {
         stockX.searchProducts((query), {
             q: query,
@@ -106,7 +106,7 @@ export default class Stockx extends Component {
                             {
                                 !isLoaded ? <Loader /> :
                                     sneakers.map(sneaker => (
-                                        <Sneaker sneaker={sneaker} />
+                                        <Sneaker sneaker={sneaker} key={sneaker.uuid}/>
                                     ))
                             }
                         </div>
@@ -146,7 +146,7 @@ const SneakerSrc = ({ sneakersSrc }) => (
 )
 
 export const Sneaker = ({ sneaker }) => (
-    <div key={sneaker.uuid} className="product" style={{ margin: "50px" }}>
+    <div className="product" style={{ margin: "50px" }}>
         {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
         <Link to={`/stockx/${sneaker.uuid}`}>
             <p>{sneaker.name}</p>

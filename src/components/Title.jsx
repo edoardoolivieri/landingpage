@@ -6,7 +6,7 @@ export default class Title extends Component {
         return (
             <div>
                 <h3>{title}</h3>
-                <p>{children}</p>
+                {children}
             </div>
         )
     }

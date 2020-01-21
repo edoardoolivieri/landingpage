@@ -2,11 +2,11 @@ import React, { Component } from "react"
 import { Container, Row } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
-import {Sneaker} from "./Stockx.jsx"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
 export default class StockxSingle extends Component {
+
     constructor(props){
         super();
         this.state = {
@@ -17,6 +17,7 @@ export default class StockxSingle extends Component {
             this.getSneakersInfo(id)
         }
     }
+
     getSneakersInfo = (sneakersInfos) => {
         stockX.fetchProductDetails(`https://stockx.com/${sneakersInfos}`)
             .then((infos) => {
@@ -33,12 +34,15 @@ export default class StockxSingle extends Component {
                 }
             )
     };
+
     render() {
-        const {sneakersInfos} = this.state
+        const { sneakersInfos } = this.state
         return (
             <Container>
                 <Navbar />
-                {sneakersInfos.name}
+                <Row className="mt-100">
+                    <h1>{sneakersInfos.name}</h1>
+                </Row>
             </Container>
         )
     }

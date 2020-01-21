@@ -20,7 +20,6 @@ export default class Stockx extends Component {
             sneakers: [],
             sneakersInfos: [],
         };
-        // console.log(this.state.sneakersInfos)
     }
 
     componentDidMount() {
@@ -66,15 +65,12 @@ export default class Stockx extends Component {
             )
     }
 
-
-
     onClick = () => {
         console.log('test')
     }
 
     render() {
-        const { isLoaded, sneakers, sneakersSrc, sneakersInfos } = this.state;
-        console.log(sneakers)
+        const { isLoaded, sneakers, sneakersSrc } = this.state;
         return (
             <Container >
                 <Navbar />
@@ -129,21 +125,13 @@ const SneakerSrc = ({ sneakersSrc }) => (
     </div>
 )
 
-export const Sneaker = ({ sneaker }) => (
+const Sneaker = ({ sneaker }) => (
     <div className="product" style={{ margin: "50px" }}>
-        {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
         <Link to={`/stockx/${sneaker.urlKey}`}>
             <p>{sneaker.name}</p>
         </Link>
         <img src={sneaker.image} alt="" style={{ width: "150px" }} />
         <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
         <p>avarage price : £ {sneaker.market.averageDeadstockPrice}</p>
-    </div>
-)
-
-export const SneakersInfo = ({ sneakersInfo }) => (
-    console.log(sneakersInfo),
-    <div>
-        sneakersInfo.name
     </div>
 )

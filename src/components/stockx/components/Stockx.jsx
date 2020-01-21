@@ -20,13 +20,12 @@ export default class Stockx extends Component {
             sneakers: [],
             sneakersInfos: [],
         };
-        console.log(this.state.sneakersInfos)
+        // console.log(this.state.sneakersInfos)
     }
 
     componentDidMount() {
         this.getSearch()
         this.getSneaker()
-        this.getSneakersInfo()
     }
 
     getSearch = (query) => {
@@ -67,22 +66,7 @@ export default class Stockx extends Component {
             )
     }
 
-    getSneakersInfo = (sneakersInfos) => {
-        stockX.fetchProductDetails('https://stockx.com/nike-dunk-low-off-white-michigan')
-            .then((infos) => {
-                this.setState({
-                    isLoaded: true,
-                    sneakersInfos: infos
-                })
-            },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    };
+
 
     onClick = () => {
         console.log('test')
@@ -90,7 +74,7 @@ export default class Stockx extends Component {
 
     render() {
         const { isLoaded, sneakers, sneakersSrc, sneakersInfos } = this.state;
-        // console.log(sneakersInfos)
+        console.log(sneakers)
         return (
             <Container >
                 <Navbar />
@@ -137,7 +121,7 @@ export default class Stockx extends Component {
 
 const SneakerSrc = ({ sneakersSrc }) => (
     <div className="product" style={{ margin: "50px" }}>
-        <Link to={`/stockx/${sneakersSrc.uuid}`}>
+        <Link to={`/stockx/${sneakersSrc.urlKey}`}>
             <p>{sneakersSrc.name}</p>
         </Link>
         <img src={sneakersSrc.image} alt="" style={{ width: "150px" }} />
@@ -148,7 +132,7 @@ const SneakerSrc = ({ sneakersSrc }) => (
 export const Sneaker = ({ sneaker }) => (
     <div className="product" style={{ margin: "50px" }}>
         {/* <a target="_blank" rel="noopener noreferrer" href={`https://stockx.com/${sneaker.urlKey}`}></a>*/}
-        <Link to={`/stockx/${sneaker.uuid}`}>
+        <Link to={`/stockx/${sneaker.urlKey}`}>
             <p>{sneaker.name}</p>
         </Link>
         <img src={sneaker.image} alt="" style={{ width: "150px" }} />

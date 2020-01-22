@@ -49,7 +49,7 @@ export default class Stockx extends Component {
     }
 
     getSneaker = (sneakers) => {
-        stockX.searchProducts(('dunk'), { limit: 3 })
+        stockX.searchProducts(('Jordan 1'), { limit: 3 })
             .then((data) => {
                 this.setState({
                     isLoaded: true,
@@ -65,12 +65,13 @@ export default class Stockx extends Component {
             )
     }
 
-    onClick = () => {
-        console.log('test')
-    }
+    // onClick = () => {
+    //     console.log('test')
+    // }
 
     render() {
         const { isLoaded, sneakers, sneakersSrc } = this.state;
+        console.log(sneakers)
         return (
             <Container >
                 <Navbar />
@@ -79,7 +80,7 @@ export default class Stockx extends Component {
                         <Title title="Top products of the month">
                             <p>testing children props</p>
                         </Title>
-                        <Button onClick={this.onClick}>Nike</Button>
+                        {/* <Button onClick={this.onClick}>Nike</Button> */}
                     </Col>
                     <Col>
                         <div className="top-product">

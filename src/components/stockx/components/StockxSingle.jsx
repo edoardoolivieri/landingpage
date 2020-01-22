@@ -1,29 +1,53 @@
 import React, { Component } from "react"
-import { Container, Row } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
+import Loader from "../../Loader.jsx";
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
-export default class StockxSingle extends Component {
 
-    constructor(props){
+const imgStyle = { width: "100%" };
+const cardStyle = { width: 500 }
+export default class StockxSingle extends Component {
+    constructor(props) {
         super();
         this.state = {
-            sneakersInfos : {},
+            sneakerInfo: {},
+            sneaker: [],
+            error: null,
+            isLoaded: false,
         }
         const id = extract(["match", "params", "id"], props)
-        if (id){
-            this.getSneakersInfo(id)
+        if (id) {
+            this.getsneakersInfo(id)
+            this.getSneaker(id)
         }
     }
-
-    getSneakersInfo = (sneakersInfos) => {
-        stockX.fetchProductDetails(`https://stockx.com/${sneakersInfos}`)
+    getsneakersInfo = (sneakerInfo) => {
+        stockX.fetchProductDetails(`https://stockx.com/${sneakerInfo}`)
             .then((infos) => {
                 this.setState({
                     isLoaded: true,
-                    sneakersInfos: infos
+                    sneakerInfo: infos
+                })
+            },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    };
+
+
+    getSneaker = (sneakerInfo) => {
+        stockX.searchProducts(sneakerInfo, { limit: 1 })
+            .then((data) => {
+                this.setState({
+                    isLoaded: true,
+                    sneaker: data
                 })
             },
                 (error) => {
@@ -36,13 +60,31 @@ export default class StockxSingle extends Component {
     };
 
     render() {
-        const { sneakersInfos } = this.state
+        const { sneakerInfo, sneaker, isLoaded } = this.state
+        console.log(sneakerInfo)
         return (
             <Container>
                 <Navbar />
-                <Row className="mt-100">
-                    <h1>{sneakersInfos.name}</h1>
-                </Row>
+                {
+                    !isLoaded ? <Loader /> :
+                        <Row className="mt-100">
+                            <Col lg={12}>
+                                <h1>{sneakerInfo.name}</h1>
+                            </Col>
+                            <Col lg={12}>
+                                <div style={cardStyle}>
+                                    <img src={extract([0, "image"], sneaker)} alt="Sneaker" style={imgStyle} />
+                                </div>
+                                <p>
+                                    {/* {
+                                        sneakerInfo.variants.map( variant => (
+                                            <p>variant.size</p>
+                                        ))
+                                    } */}
+                                </p>
+                            </Col>
+                        </Row>
+                }
             </Container>
         )
     }

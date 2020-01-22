@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
 import Loader from "../../Loader.jsx";
+import Loading from "../../Loading.jsx";
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
@@ -61,10 +62,11 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, isLoaded } = this.state
-        console.log(sneakerInfo)
+        const variants = [extract(["variants"], sneakerInfo)]
         return (
             <Container>
                 <Navbar />
+                <div className="mt-100"></div>
                 {
                     !isLoaded ? <Loader /> :
                         <Row className="mt-100">
@@ -75,15 +77,15 @@ export default class StockxSingle extends Component {
                                 <div style={cardStyle}>
                                     <img src={extract([0, "image"], sneaker)} alt="Sneaker" style={imgStyle} />
                                 </div>
-                                <p>
-                                    {/* {
-                                        sneakerInfo.variants.map( variant => (
-                                            <p>variant.size</p>
-                                        ))
-                                    } */}
-                                </p>
                             </Col>
+
                         </Row>
+                }
+                {
+                    !isLoaded ? <Loading /> :
+                        variants[0].map(variant => (
+                            <li><ul>{variant.size}</ul></li>
+                        ))
                 }
             </Container>
         )

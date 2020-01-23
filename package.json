@@ -1,6 +1,6 @@
 {
-  "homepage": "http://dixit-appear.github.io/landingpage",
-  "name": "landingpage",
+  "homepage": "https://dixit-landing.netlify.com/",
+  "name": "dixit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

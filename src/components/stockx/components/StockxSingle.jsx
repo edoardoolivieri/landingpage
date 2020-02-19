@@ -74,7 +74,7 @@ export default class StockxSingle extends Component {
                                 <h1>{sneakerInfo.name}</h1>
                             </Col>
                             <Col lg={12}>
-                                <div style={cardStyle}>
+                                <div style={cardStyle} className="test">
                                     <img src={extract([0, "image"], sneaker)} alt="Sneaker" style={imgStyle} />
                                 </div>
                             </Col>

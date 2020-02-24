@@ -64,11 +64,6 @@ export default class Stockx extends Component {
                 }
             )
     }
-
-    // onClick = () => {
-    //     console.log('test')
-    // }
-
     render() {
         const { isLoaded, sneakers, sneakersSrc } = this.state;
         console.log(sneakers)

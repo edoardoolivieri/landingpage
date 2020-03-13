@@ -62,7 +62,9 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, isLoaded } = this.state
-        const variants = [extract(["variants"], sneakerInfo)]
+        console.log(sneakerInfo)
+        const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
+        console.log(variants)
         return (
             <Container>
                 <Navbar />
@@ -83,7 +85,7 @@ export default class StockxSingle extends Component {
                 }
                 {
                     !isLoaded ? <Loading /> :
-                        variants[0].map(variant => (
+                        variants.map(variant => (
                             <li><ul>{variant.size}</ul></li>
                         ))
                 }

@@ -82,7 +82,7 @@ export default class Stockx extends Component {
                             {
                                 !isLoaded ? <Loader /> :
                                     sneakers.map(sneaker => (
-                                        <Sneaker sneaker={sneaker} key={sneaker.uuid}/>
+                                        <Sneaker sneaker={sneaker} key={sneaker.uuid} />
                                     ))
                             }
                         </div>
@@ -99,10 +99,9 @@ export default class Stockx extends Component {
                 <Row>
                     <Col>
                         {
-                            sneakersSrc ?
-                                <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
-                                    <SneakerSrc sneakersSrc={sneakersSrc} />)} />
-                                : ""
+                            sneakersSrc &&
+                            <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
+                                <SneakerSrc sneakersSrc={sneakersSrc} />)} />
                         }
                     </Col>
                 </Row>

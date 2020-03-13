@@ -62,9 +62,7 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, isLoaded } = this.state
-        console.log(sneakerInfo)
         const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
-        console.log(variants)
         return (
             <Container>
                 <Navbar />

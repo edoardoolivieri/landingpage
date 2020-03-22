@@ -4,6 +4,7 @@ import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
 import Loader from "../../Loader.jsx";
 import Loading from "../../Loading.jsx";
+import { Playlist } from 'react-spotify-api'
 import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
@@ -94,6 +95,11 @@ export default class StockxSingle extends Component {
                             </li>
                         ))
                 }
+                {/* <Playlist id="060QHhmOlYMEfFdxl4NpAS">
+                    {(playlist, loading, error) => (
+                        playlist ? <h1>{playlist.name}</h1> : null
+                    )}
+                </Playlist> */}
             </Container>
         )
     }

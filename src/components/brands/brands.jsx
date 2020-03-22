@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Image } from 'react-bootstrap';
+import {Link} from "react-router-dom"
 
 const Mainbrands = styled.div`
   margin: 250px 50px 50px 50px;
@@ -47,8 +48,8 @@ const Brandslogo = styled.div`
 `
 
 class Brands extends Component {
-  render(){
-    return(
+  render() {
+    return (
       <Mainbrands>
         <h1>Brands.</h1>
         <Brandslogo>
@@ -61,9 +62,11 @@ class Brands extends Component {
           <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${process.env.PUBLIC_URL}/images/supremebanner.png)` }}>
             <div className="container-text">
               <h2>Buy Exclusive Clothes.</h2>
-              <button type="button" className="btn-brands-section">
-                <p>Shop</p>
-              </button>
+              <Link to="/stockx">
+                <button type="button" className="btn-brands-section">
+                  <p>Shop</p>
+                </button>
+              </Link>
             </div>
           </Imagesupreme>
           <Clothing>
@@ -92,14 +95,14 @@ class Brands extends Component {
               </div>
             </Containercloth>
           </Sneakers>
-          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${process.env.PUBLIC_URL}/images/banner6.png)`}}>
+          <Imagesupreme style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${process.env.PUBLIC_URL}/images/banner6.png)` }}>
             <div className="container-text">
               <h2>Sell Exclusive Sneakers.</h2>
               <button type="button" className="btn-brands-section">
                 <p>Shop</p>
               </button>
             </div>
-          </Imagesupreme> 
+          </Imagesupreme>
         </div>
       </Mainbrands>
     );

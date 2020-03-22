@@ -8665,6 +8665,11 @@ react-slick@^0.25.2:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
+react-spotify-api@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-spotify-api/-/react-spotify-api-2.6.0.tgz#7b81b5352231787b75d732c59705afe3193f3dac"
+  integrity sha512-zS7rShZUn6udd0OICX8YIG5wtrqjfmY6yvQgjp2FYr26t3MjF2BCpwnm2XNo8yI8GuRc/cKEa/bx8Ag1DjaY8w==
+
 react-sticky@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/react-sticky/-/react-sticky-6.0.3.tgz#7a18b643e1863da113d7f7036118d2a75d9ecde4"

@@ -4,6 +4,7 @@ import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
 import Loader from "../../Loader.jsx";
 import Loading from "../../Loading.jsx";
+import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
@@ -62,7 +63,9 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, isLoaded } = this.state
-        const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
+        console.log(sneakerInfo)
+        const Variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
+        console.log(Variants[0])
         return (
             <Container>
                 <Navbar />
@@ -83,8 +86,12 @@ export default class StockxSingle extends Component {
                 }
                 {
                     !isLoaded ? <Loading /> :
-                        variants.map(variant => (
-                            <li><ul>{variant.size}</ul></li>
+                        _.map(Variants[0], variant => (
+                            <li>
+                                <ul>
+                                    {variant.size}
+                                </ul>
+                            </li>
                         ))
                 }
             </Container>

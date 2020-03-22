@@ -66,7 +66,6 @@ export default class Stockx extends Component {
     }
     render() {
         const { isLoaded, sneakers, sneakersSrc } = this.state;
-        console.log(sneakers)
         return (
             <Container >
                 <Navbar />

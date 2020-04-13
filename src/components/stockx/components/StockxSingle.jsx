@@ -17,6 +17,8 @@ export default class StockxSingle extends Component {
             sneaker: [],
             error: null,
             isLoaded: false,
+            show: false,
+            infoMarket: null
         }
         const id = extract(["match", "params", "id"], props)
         if (id) {
@@ -61,16 +63,21 @@ export default class StockxSingle extends Component {
 
 
     onClick = (variant) => {
-        
-        console.log(variant)
-        // const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No Info"]
-        // console.log(variants[0].size)
+        this.setState({
+            show: true,
+            infoMarket: variant
+        })
     }
 
     render() {
-        const { sneakerInfo, sneaker, isLoaded } = this.state
-        console.log(sneakerInfo)
+        const { sneakerInfo, sneaker, isLoaded, show, infoMarket } = this.state
         const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
+        const lowestAsk = extract(["market", "lowestAsk"], infoMarket) ? extract(["market", "lowestAsk"], infoMarket) : "N/A"
+        const numberOfAsks = extract(["market", "numberOfAsks"], infoMarket) ? extract(["market", "numberOfAsks"], infoMarket) : "N/A"
+        const highestBid = extract(["market", "highestBid"], infoMarket) ? extract(["market", "highestBid"], infoMarket) : "N/A"
+        const highesnumberOfBids = extract(["market", "numberOfBids"], infoMarket) ? extract(["market", "numberOfBids"], infoMarket) : "N/A"
+        const lastSale = extract(["market", "lastSale"], infoMarket) ? extract(["market", "lastSale"], infoMarket) : "N/A"
+        const salesLast72Hours = extract(["market", "salesLast72Hours"], infoMarket) ? extract(["market", "salesLast72Hours"], infoMarket) : "N/A"
         return (
             <Container>
                 <Navbar />
@@ -99,9 +106,24 @@ export default class StockxSingle extends Component {
                 </Row>
                 <Row>
                     {
-                        _.map(variants[0], variant => (
-                                 <button value={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
+                        _.map(variants[0], (variant) => (
+                            <>
+                                <button variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
+                            </>
                         ))
+                    }
+                </Row>
+                <Row>
+                    {
+                        show &&
+                        <div>
+                            <p>lowestAsk: ${lowestAsk}</p>
+                            <p>numberOfAsk: {numberOfAsks}</p>
+                            <p>highestBid: ${highestBid}</p>
+                            <p>numberOfBid: {highesnumberOfBids}</p>
+                            <p>lastSale: ${lastSale}</p>
+                            <p>saleLast72Hours: {salesLast72Hours}</p>
+                        </div>
                     }
                 </Row>
             </Container>

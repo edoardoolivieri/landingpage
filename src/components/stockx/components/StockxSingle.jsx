@@ -42,8 +42,6 @@ export default class StockxSingle extends Component {
                 }
             )
     };
-
-
     getSneaker = (sneakerInfo) => {
         stockX.searchProducts(sneakerInfo, { limit: 1 })
             .then((data) => {
@@ -60,8 +58,6 @@ export default class StockxSingle extends Component {
                 }
             )
     };
-
-
     onClick = (variant) => {
         this.setState({
             show: true,
@@ -70,7 +66,8 @@ export default class StockxSingle extends Component {
     }
 
     render() {
-        const { sneakerInfo, sneaker, isLoaded, show, infoMarket } = this.state
+        const { sneakerInfo, sneaker, show, infoMarket } = this.state
+        console.log(sneaker)
         const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
         const lowestAsk = extract(["market", "lowestAsk"], infoMarket) ? extract(["market", "lowestAsk"], infoMarket) : "N/A"
         const numberOfAsks = extract(["market", "numberOfAsks"], infoMarket) ? extract(["market", "numberOfAsks"], infoMarket) : "N/A"
@@ -82,6 +79,14 @@ export default class StockxSingle extends Component {
             <Container>
                 <Navbar />
                 <div className="mt-100"></div>
+                <Row>
+                    <Col lg={12}>
+                        <div className="top-info">
+                            <p>{sneakerInfo.pid}</p>
+                            <p>${extract([0, "retail"], sneaker)}</p>
+                        </div>
+                    </Col>
+                </Row>
                 <Row className="mt-100">
                     <Col lg={7}>
                         <div className="img-product">
@@ -96,35 +101,45 @@ export default class StockxSingle extends Component {
                             </div>
                         </div>
                         <a rel="noopener noreferrer" target="_blank" href={`https://stockx.com/${extract([0, "urlKey"], sneaker)}`}>
-                            <Button>
-                                <p>StockX</p>
-                                <img src="" alt="" />
+                            <Button className="btn-stockx">
+                                <div className="d-flex center">
+                                    <p>StockX</p>
+                                    <i class="fas fa-arrow-circle-right" />
+                                </div>
                             </Button>
                         </a>
                     </Col>
 
                 </Row>
                 <Row>
+                    <Col className="title-value">
+                        <h3>Market Value</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <p>US size: </p>
                     {
                         _.map(variants[0], (variant) => (
                             <>
-                                <button variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
+                                <button className="size-btn" variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
                             </>
                         ))
                     }
                 </Row>
                 <Row>
-                    {
-                        show &&
-                        <div>
-                            <p>lowestAsk: ${lowestAsk}</p>
-                            <p>numberOfAsk: {numberOfAsks}</p>
-                            <p>highestBid: ${highestBid}</p>
-                            <p>numberOfBid: {highesnumberOfBids}</p>
-                            <p>lastSale: ${lastSale}</p>
-                            <p>saleLast72Hours: {salesLast72Hours}</p>
-                        </div>
-                    }
+                    <Col>
+                        {
+                            show &&
+                            <div>
+                                <p>lowestAsk: ${lowestAsk}</p>
+                                <p>numberOfAsk: {numberOfAsks}</p>
+                                <p>highestBid: ${highestBid}</p>
+                                <p>numberOfBid: {highesnumberOfBids}</p>
+                                <p>lastSale: ${lastSale}</p>
+                                <p>saleLast72Hours: {salesLast72Hours}</p>
+                            </div>
+                        }
+                    </Col>
                 </Row>
             </Container>
         )

@@ -4,7 +4,6 @@ import Loader from "../../Loader.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
 import SearchBar from "../../Search-bar.jsx"
 import Slider from "../../Slider.jsx"
-import Title from "../../Title.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"
@@ -71,10 +70,8 @@ export default class Stockx extends Component {
                 <Navbar />
                 <Row className="mt-100">
                     <Col lg={12}>
-                        <Title title="Top products of the month">
-                            <p>testing children props</p>
-                        </Title>
-                        {/* <Button onClick={this.onClick}>Nike</Button> */}
+                        <h1>Top products of the month</h1>
+                        <p>testing children props</p>
                     </Col>
                     <Col>
                         <div className="top-product">

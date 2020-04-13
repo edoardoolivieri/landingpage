@@ -1,17 +1,14 @@
 import React, { Component } from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
-import Loader from "../../Loader.jsx";
-import Loading from "../../Loading.jsx";
-import { Playlist } from 'react-spotify-api'
+import moment from 'moment';
+// import Loader from "../../Loader.jsx";
+// import Loading from "../../Loading.jsx";
 import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
-
-const imgStyle = { width: "100%" };
-const cardStyle = { width: 500 }
 export default class StockxSingle extends Component {
     constructor(props) {
         super();
@@ -62,44 +59,51 @@ export default class StockxSingle extends Component {
             )
     };
 
+
+    onClick = (variant) => {
+        
+        console.log(variant)
+        // const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No Info"]
+        // console.log(variants[0].size)
+    }
+
     render() {
         const { sneakerInfo, sneaker, isLoaded } = this.state
         console.log(sneakerInfo)
-        const Variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
-        console.log(Variants[0])
+        const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
         return (
             <Container>
                 <Navbar />
                 <div className="mt-100"></div>
-                {
-                    !isLoaded ? <Loader /> :
-                        <Row className="mt-100">
-                            <Col lg={12}>
-                                <h1>{sneakerInfo.name}</h1>
-                            </Col>
-                            <Col lg={12}>
-                                <div style={cardStyle} className="test">
-                                    <img src={extract([0, "image"], sneaker)} alt="Sneaker" style={imgStyle} />
-                                </div>
-                            </Col>
+                <Row className="mt-100">
+                    <Col lg={7}>
+                        <div className="img-product">
+                            <img src={extract([0, "image"], sneaker)} alt="Sneaker" />
+                        </div>
+                    </Col>
+                    <Col lg={5}>
+                        <div className="title-product">
+                            <h1>{sneakerInfo.name}</h1>
+                            <div>
+                                <h3>Release Date: </h3><p>{moment(extract([0, "releaseDate"], sneaker)).format("DD MMM, YYYY")}</p>
+                            </div>
+                        </div>
+                        <a rel="noopener noreferrer" target="_blank" href={`https://stockx.com/${extract([0, "urlKey"], sneaker)}`}>
+                            <Button>
+                                <p>StockX</p>
+                                <img src="" alt="" />
+                            </Button>
+                        </a>
+                    </Col>
 
-                        </Row>
-                }
-                {
-                    !isLoaded ? <Loading /> :
-                        _.map(Variants[0], variant => (
-                            <li>
-                                <ul>
-                                    {variant.size}
-                                </ul>
-                            </li>
+                </Row>
+                <Row>
+                    {
+                        _.map(variants[0], variant => (
+                                 <button value={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
                         ))
-                }
-                {/* <Playlist id="060QHhmOlYMEfFdxl4NpAS">
-                    {(playlist, loading, error) => (
-                        playlist ? <h1>{playlist.name}</h1> : null
-                    )}
-                </Playlist> */}
+                    }
+                </Row>
             </Container>
         )
     }

@@ -1,17 +1,14 @@
 import React, { Component } from "react"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
-import Loader from "../../Loader.jsx";
-import Loading from "../../Loading.jsx";
-import { Playlist } from 'react-spotify-api'
+import moment from 'moment';
+// import Loader from "../../Loader.jsx";
+// import Loading from "../../Loading.jsx";
 import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
 const stockX = new stockxAPI();
-
-const imgStyle = { width: "100%" };
-const cardStyle = { width: 500 }
 export default class StockxSingle extends Component {
     constructor(props) {
         super();
@@ -20,6 +17,8 @@ export default class StockxSingle extends Component {
             sneaker: [],
             error: null,
             isLoaded: false,
+            show: false,
+            infoMarket: null
         }
         const id = extract(["match", "params", "id"], props)
         if (id) {
@@ -43,8 +42,6 @@ export default class StockxSingle extends Component {
                 }
             )
     };
-
-
     getSneaker = (sneakerInfo) => {
         stockX.searchProducts(sneakerInfo, { limit: 1 })
             .then((data) => {
@@ -61,45 +58,89 @@ export default class StockxSingle extends Component {
                 }
             )
     };
+    onClick = (variant) => {
+        this.setState({
+            show: true,
+            infoMarket: variant
+        })
+    }
 
     render() {
-        const { sneakerInfo, sneaker, isLoaded } = this.state
-        console.log(sneakerInfo)
-        const Variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
-        console.log(Variants[0])
+        const { sneakerInfo, sneaker, show, infoMarket } = this.state
+        console.log(sneaker)
+        const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
+        const lowestAsk = extract(["market", "lowestAsk"], infoMarket) ? extract(["market", "lowestAsk"], infoMarket) : "N/A"
+        const numberOfAsks = extract(["market", "numberOfAsks"], infoMarket) ? extract(["market", "numberOfAsks"], infoMarket) : "N/A"
+        const highestBid = extract(["market", "highestBid"], infoMarket) ? extract(["market", "highestBid"], infoMarket) : "N/A"
+        const highesnumberOfBids = extract(["market", "numberOfBids"], infoMarket) ? extract(["market", "numberOfBids"], infoMarket) : "N/A"
+        const lastSale = extract(["market", "lastSale"], infoMarket) ? extract(["market", "lastSale"], infoMarket) : "N/A"
+        const salesLast72Hours = extract(["market", "salesLast72Hours"], infoMarket) ? extract(["market", "salesLast72Hours"], infoMarket) : "N/A"
         return (
             <Container>
                 <Navbar />
                 <div className="mt-100"></div>
-                {
-                    !isLoaded ? <Loader /> :
-                        <Row className="mt-100">
-                            <Col lg={12}>
-                                <h1>{sneakerInfo.name}</h1>
-                            </Col>
-                            <Col lg={12}>
-                                <div style={cardStyle} className="test">
-                                    <img src={extract([0, "image"], sneaker)} alt="Sneaker" style={imgStyle} />
+                <Row>
+                    <Col lg={12}>
+                        <div className="top-info">
+                            <p>{sneakerInfo.pid}</p>
+                            <p>${extract([0, "retail"], sneaker)}</p>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className="mt-100">
+                    <Col lg={7}>
+                        <div className="img-product">
+                            <img src={extract([0, "image"], sneaker)} alt="Sneaker" />
+                        </div>
+                    </Col>
+                    <Col lg={5}>
+                        <div className="title-product">
+                            <h1>{sneakerInfo.name}</h1>
+                            <div>
+                                <h3>Release Date: </h3><p>{moment(extract([0, "releaseDate"], sneaker)).format("DD MMM, YYYY")}</p>
+                            </div>
+                        </div>
+                        <a rel="noopener noreferrer" target="_blank" href={`https://stockx.com/${extract([0, "urlKey"], sneaker)}`}>
+                            <Button className="btn-stockx">
+                                <div className="d-flex center">
+                                    <p>StockX</p>
+                                    <i class="fas fa-arrow-circle-right" />
                                 </div>
-                            </Col>
+                            </Button>
+                        </a>
+                    </Col>
 
-                        </Row>
-                }
-                {
-                    !isLoaded ? <Loading /> :
-                        _.map(Variants[0], variant => (
-                            <li>
-                                <ul>
-                                    {variant.size}
-                                </ul>
-                            </li>
+                </Row>
+                <Row>
+                    <Col className="title-value">
+                        <h3>Market Value</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    <p>US size: </p>
+                    {
+                        _.map(variants[0], (variant) => (
+                            <>
+                                <button className="size-btn" variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
+                            </>
                         ))
-                }
-                {/* <Playlist id="060QHhmOlYMEfFdxl4NpAS">
-                    {(playlist, loading, error) => (
-                        playlist ? <h1>{playlist.name}</h1> : null
-                    )}
-                </Playlist> */}
+                    }
+                </Row>
+                <Row>
+                    <Col>
+                        {
+                            show &&
+                            <div>
+                                <p>lowestAsk: ${lowestAsk}</p>
+                                <p>numberOfAsk: {numberOfAsks}</p>
+                                <p>highestBid: ${highestBid}</p>
+                                <p>numberOfBid: {highesnumberOfBids}</p>
+                                <p>lastSale: ${lastSale}</p>
+                                <p>saleLast72Hours: {salesLast72Hours}</p>
+                            </div>
+                        }
+                    </Col>
+                </Row>
             </Container>
         )
     }

@@ -8,7 +8,10 @@ import moment from 'moment';
 import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
-const stockX = new stockxAPI();
+const stockX = new stockxAPI({
+    proxy: 'random.slashproxies.io:7777:dixit8362a65e:afc5be42',
+    currency: 'GBP'
+});
 export default class StockxSingle extends Component {
     constructor(props) {
         super();
@@ -58,6 +61,7 @@ export default class StockxSingle extends Component {
                 }
             )
     };
+    
     onClick = (variant) => {
         this.setState({
             show: true,
@@ -82,7 +86,7 @@ export default class StockxSingle extends Component {
                     <Col lg={12}>
                         <div className="top-info">
                             <p>{sneakerInfo.pid}</p>
-                            <p>${extract([0, "retail"], sneaker)}</p>
+                            <p>£{extract([0, "retail"], sneaker)}</p>
                         </div>
                     </Col>
                 </Row>
@@ -130,11 +134,11 @@ export default class StockxSingle extends Component {
                         {
                             show &&
                             <div>
-                                <p>lowestAsk: ${lowestAsk}</p>
+                                <p>lowestAsk: £{lowestAsk}</p>
                                 <p>numberOfAsk: {numberOfAsks}</p>
-                                <p>highestBid: ${highestBid}</p>
+                                <p>highestBid: £{highestBid}</p>
                                 <p>numberOfBid: {highesnumberOfBids}</p>
-                                <p>lastSale: ${lastSale}</p>
+                                <p>lastSale: £{lastSale}</p>
                                 <p>saleLast72Hours: {salesLast72Hours}</p>
                             </div>
                         }

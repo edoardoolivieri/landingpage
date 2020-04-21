@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import Loader from "../../Loader.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
 import SearchBar from "../../Search-bar.jsx"
@@ -16,21 +16,20 @@ export default class Stockx extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            sneakers: [],
-            sneakersInfos: [],
+            topSneakers: [],
+            sneakersSrc: [],
         };
     }
 
     componentDidMount() {
-        this.getSearch()
-        this.getSneaker()
+        this.getSneakers()
+        this.getSearchSneakers()
     }
 
-    getSearch = (query) => {
+    getSearchSneakers = (query) => {
         stockX.searchProducts((query), {
             q: query,
-            limit: 20,
-            currency: 'GBP'
+            limit: 10,
         })
             .then((products) => {
                 this.setState({
@@ -47,24 +46,25 @@ export default class Stockx extends Component {
             )
     }
 
-    getSneaker = (sneakers) => {
-        stockX.searchProducts(('Jordan 1'), { limit: 3 })
-            .then((data) => {
-                this.setState({
-                    isLoaded: true,
-                    sneakers: data
-                })
-            },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
+    async getSneakers() {
+        try {
+            const resp = await stockX.searchProducts(('SB'), { limit: 3 })
+            this.setState({
+                isLoaded: true,
+                topSneakers: resp
+            })
+        }
+        catch (error) {
+            this.setState({
+                isLoaded: false,
+                error
+            })
+        }
+
     }
+
     render() {
-        const { isLoaded, sneakers, sneakersSrc } = this.state;
+        const { isLoaded, topSneakers, sneakersSrc } = this.state;
         return (
             <Container >
                 <Navbar />
@@ -77,7 +77,7 @@ export default class Stockx extends Component {
                         <div className="top-product">
                             {
                                 !isLoaded ? <Loader /> :
-                                    sneakers.map(sneaker => (
+                                    topSneakers.map(sneaker => (
                                         <Sneaker sneaker={sneaker} key={sneaker.uuid} />
                                     ))
                             }
@@ -89,7 +89,7 @@ export default class Stockx extends Component {
                 </Row>
                 <Row>
                     <Col lg={12}>
-                        <SearchBar searchFunction={this.getSearch} />
+                        <SearchBar searchFunction={this.getSearchSneakers} />
                     </Col>
                 </Row>
                 <Row>

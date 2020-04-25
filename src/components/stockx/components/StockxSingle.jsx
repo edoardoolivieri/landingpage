@@ -3,8 +3,6 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../lib/extractValue.js"
 import moment from 'moment';
-// import Loader from "../../Loader.jsx";
-// import Loading from "../../Loading.jsx";
 import _ from "underscore"
 
 const stockxAPI = require('stockx-api');
@@ -61,7 +59,7 @@ export default class StockxSingle extends Component {
                 }
             )
     };
-    
+
     onClick = (variant) => {
         this.setState({
             show: true,
@@ -71,6 +69,7 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, show, infoMarket } = this.state
+        console.log(sneakerInfo)
         const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
         const lowestAsk = extract(["market", "lowestAsk"], infoMarket) ? extract(["market", "lowestAsk"], infoMarket) : "N/A"
         const numberOfAsks = extract(["market", "numberOfAsks"], infoMarket) ? extract(["market", "numberOfAsks"], infoMarket) : "N/A"
@@ -86,11 +85,10 @@ export default class StockxSingle extends Component {
                     <Col lg={12}>
                         <div className="top-info">
                             <p>{sneakerInfo.pid}</p>
-                            <p>£{extract([0, "retail"], sneaker)}</p>
                         </div>
                     </Col>
                 </Row>
-                <Row className="mt-100">
+                <Row className="">
                     <Col lg={7}>
                         <div className="img-product">
                             <img src={extract([0, "image"], sneaker)} alt="Sneaker" />
@@ -99,15 +97,14 @@ export default class StockxSingle extends Component {
                     <Col lg={5}>
                         <div className="title-product">
                             <h1>{sneakerInfo.name}</h1>
-                            <div>
-                                <h3>Release Date: </h3><p>{moment(extract([0, "releaseDate"], sneaker)).format("DD MMM, YYYY")}</p>
-                            </div>
+                            <h3>Release Date: <span>{moment(extract([0, "releaseDate"], sneaker)).format("DD MMM, YYYY")}</span></h3>
+                            <h3>Retail price: <span>£{extract([0, "retail"], sneaker)}</span></h3>
                         </div>
                         <a rel="noopener noreferrer" target="_blank" href={`https://stockx.com/${extract([0, "urlKey"], sneaker)}`}>
                             <Button className="btn-stockx">
                                 <div className="d-flex center">
                                     <p>StockX</p>
-                                    <i class="fas fa-arrow-circle-right" />
+                                    <i className="fas fa-arrow-circle-right" />
                                 </div>
                             </Button>
                         </a>
@@ -124,7 +121,7 @@ export default class StockxSingle extends Component {
                     {
                         _.map(variants[0], (variant) => (
                             <>
-                                <button className="size-btn" variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
+                                <button key={variant.uuid} className="size-btn" variant={variant} onClick={() => this.onClick(variant)}>{variant.size}</button>
                             </>
                         ))
                     }

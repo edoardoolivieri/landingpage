@@ -97,7 +97,7 @@ export default class Stockx extends Component {
                         {
                             sneakersSrc &&
                             <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
-                                <SneakerSrc sneakersSrc={sneakersSrc} />)} />
+                                <SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid}/>)} />
                         }
                     </Col>
                 </Row>

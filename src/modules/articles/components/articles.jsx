@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Loading from "../../../lib/components/Loading.jsx"
 import styled from 'styled-components';
 import moment from 'moment';
-import Loading from "../Loading.jsx"
 
 const News = styled.div`
   margin: 200px 50px 50px 50px;

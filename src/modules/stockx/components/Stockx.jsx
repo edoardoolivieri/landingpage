@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import Loader from "../../Loader.jsx"
+import Loader from "../../../lib/components/Loader.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
-import SearchBar from "../../Search-bar.jsx"
-import Slider from "../../Slider.jsx"
+import SearchBar from "../../../lib/components/Search-bar.jsx"
+import Slider from "../../../lib/components/Slider.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import _ from "underscore"

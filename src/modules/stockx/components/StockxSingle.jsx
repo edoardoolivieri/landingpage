@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
-import extract from "../../lib/extractValue.js"
+import extract from "../../..//lib/utils/extractValue.js"
 import moment from 'moment';
 import _ from "underscore"
 
@@ -10,6 +10,7 @@ const stockX = new stockxAPI({
     proxy: 'random.slashproxies.io:7777:dixit8362a65e:afc5be42',
     currency: 'GBP'
 });
+
 export default class StockxSingle extends Component {
     constructor(props) {
         super();

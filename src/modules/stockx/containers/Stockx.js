@@ -2,11 +2,11 @@ import StockX from "../components/Stockx"
 import {
     connect
 } from "react-redux"
-import {
-} from "../../../redux/actions/app.js"
 
 const mapStateToProps = (state, ownProps) => {
     return {
+        topSneakers: state.topSneakers,
+        sneakersSrc: state.sneakersSrc 
     }
 }
 

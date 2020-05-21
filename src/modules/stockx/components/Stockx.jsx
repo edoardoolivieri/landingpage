@@ -1,70 +1,26 @@
 import React, { Component } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import Loader from "../../../lib/components/Loader.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
 import SearchBar from "../../../lib/components/Search-bar.jsx"
 import Slider from "../../../lib/components/Slider.jsx"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
+import {
+    getSearchSneakers,
+    getSneakers
+} from "../../../redux/actions/app.js"
 import _ from "underscore"
 
-const stockxAPI = require('stockx-api');
-const stockX = new stockxAPI();
 export default class Stockx extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            topSneakers: [],
-            sneakersSrc: [],
-        };
-    }
 
-    componentDidMount() {
-        this.getSneakers()
-        this.getSearchSneakers()
-    }
-
-    getSearchSneakers = (query) => {
-        stockX.searchProducts((query), {
-            q: query,
-            limit: 10,
-        })
-            .then((products) => {
-                this.setState({
-                    isLoaded: true,
-                    sneakersSrc: products
-                })
-            },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
-
-    async getSneakers() {
-        try {
-            const resp = await stockX.searchProducts(('SB'), { limit: 3 })
-            this.setState({
-                isLoaded: true,
-                topSneakers: resp
-            })
-        }
-        catch (error) {
-            this.setState({
-                isLoaded: false,
-                error
-            })
-        }
-
+    componentDidMount(){
+        getSneakers()
     }
 
     render() {
-        const { isLoaded, topSneakers, sneakersSrc } = this.state;
+        // State from Redux
+        const { topSneakers, sneakersSrc } = this.props
+        console.log(sneakersSrc)
         return (
             <Container >
                 <Navbar />
@@ -76,10 +32,9 @@ export default class Stockx extends Component {
                     <Col>
                         <div className="top-product">
                             {
-                                !isLoaded ? <Loader /> :
-                                    topSneakers.map(sneaker => (
-                                        <Sneaker sneaker={sneaker} key={sneaker.uuid} />
-                                    ))
+                                topSneakers.map(sneaker => (
+                                    <Sneaker sneaker={sneaker} key={sneaker.uuid} />
+                                ))
                             }
                         </div>
                     </Col>
@@ -89,7 +44,7 @@ export default class Stockx extends Component {
                 </Row>
                 <Row>
                     <Col lg={12}>
-                        <SearchBar searchFunction={this.getSearchSneakers} />
+                        <SearchBar searchFunction={() => { getSearchSneakers() }} />
                     </Col>
                 </Row>
                 <Row>
@@ -97,7 +52,7 @@ export default class Stockx extends Component {
                         {
                             sneakersSrc &&
                             <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
-                                <SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid}/>)} />
+                                <SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} />)} />
                         }
                     </Col>
                 </Row>

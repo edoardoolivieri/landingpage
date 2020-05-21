@@ -70,7 +70,6 @@ export default class StockxSingle extends Component {
 
     render() {
         const { sneakerInfo, sneaker, show, infoMarket } = this.state
-        console.log(sneakerInfo)
         const variants = [extract(["variants"], sneakerInfo) ? extract(["variants"], sneakerInfo) : "No size"]
         const lowestAsk = extract(["market", "lowestAsk"], infoMarket) ? extract(["market", "lowestAsk"], infoMarket) : "N/A"
         const numberOfAsks = extract(["market", "numberOfAsks"], infoMarket) ? extract(["market", "numberOfAsks"], infoMarket) : "N/A"

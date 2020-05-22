@@ -6,7 +6,7 @@ import {
 const mapStateToProps = (state, ownProps) => {
     return {
         topSneakers: state.topSneakers,
-        sneakersSrc: state.sneakersSrc 
+        isLoadedSneakers: state.isLoadedSneakers
     }
 }
 

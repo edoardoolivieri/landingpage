@@ -1,4 +1,4 @@
 export default {
     topSneakers: [],
-    sneakersSrc: []
+    isLoadedSneakers: false
 }

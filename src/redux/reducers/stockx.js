@@ -13,11 +13,13 @@ export const topSneakers = (state = initialState.topSneakers, action) => {
     }
 }
 
-export const sneakersSrc = (state = initialState.sneakersSrc, action) => {
-    console.log(action)
+export const isLoadedSneakers = (state = initialState.isLoadedSneakers, action) => {
     switch (action.type) {
-        case actions.FETCH_STOCKX_SEARCH_SUCCESS:
-            return action.sneakersSrc
+        case actions.FETCH_STOCKX_FAILURE:
+            return false
+        case actions.FETCH_STOCKX_BEGIN:
+        case actions.FETCH_STOCKX_SUCCESS:
+            return true
         default:
             return state
     }

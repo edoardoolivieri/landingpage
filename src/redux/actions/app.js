@@ -1,12 +1,13 @@
 import actions from "./names"
 import { NotificationManager } from "react-notifications";
 
-const stockxAPI = require('stockx-api');
-const stockX = new stockxAPI({
-    // proxy: 'pr.blankpremium.co.uk:7777:customer-2L7WPHIE-cc-gb:6F4KYR7Z',
+export const stockxAPI = require('stockx-api');
+export const stockX = new stockxAPI({
+    // proxy: '',
     currency: 'GBP'
 });
 
+// StockX Page
 export const getSneakers = () => async dispatch => {
     try {
         const resp = await stockX.searchProducts(('SB'), { limit: 3 })
@@ -14,28 +15,15 @@ export const getSneakers = () => async dispatch => {
             type: actions.FETCH_STOCKX_SUCCESS,
             topSneakers: resp
         })
+        NotificationManager.success("StockX fetch success")
     }
     catch (error) {
         dispatch({
             type: actions.FETCH_STOCKX_FAILURE,
             error
         })
+        NotificationManager.error(error.message)
     }
 }
 
-export const getSearchSneakers = (query) => async dispatch => {
-    try {
-        const resp = await stockX.searchProducts((query), { q: query, limit: 10, })
-        dispatch({
-            type: actions.FETCH_STOCKX_SEARCH_SUCCESS,
-            sneakersSrc: resp
-        })
-    }
-    catch (err) {
-        dispatch({
-            type: actions.FETCH_STOCKX_SEARCH_FAILURE,
-        })
-        NotificationManager.error(err.message)
-    }
-}
-// console.log(getSearchSneakers()({query: "test"}))
+// Stockx Single Page

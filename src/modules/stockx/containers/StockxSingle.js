@@ -1,4 +1,4 @@
-import StockX from "../components/Stockx"
+import StockxSingle from "../components/StockxSingle"
 import {
     connect
 } from "react-redux"
@@ -8,21 +8,21 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        topSneakers: state.topSneakers,
-        isLoadedSneakers: state.isLoadedSneakers,
-        id: ownProps.match.params.id,
+        sneakerInfo: state.sneakerInfo,
+        sneaker: state.sneaker,
+        id: ownProps.match.params.id
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         getSneakersInfo: (id) => dispatch(getSneakersInfo(id))
     }
 }
 
-const StockXContainer = connect(
+const StockxSingleContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(StockX)
+)(StockxSingle)
 
-export default StockXContainer
+export default StockxSingleContainer

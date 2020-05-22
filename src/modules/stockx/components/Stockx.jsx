@@ -7,6 +7,7 @@ import Slider from "../../../lib/components/Slider.jsx"
 import { stockX } from "../../../redux/actions/app"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
+import { getSneakersInfo } from "../../../redux/actions/app"
 import _ from "underscore"
 
 export default ({ topSneakers, isLoadedSneakers }) => {
@@ -43,7 +44,7 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                         {
                             !isLoadedSneakers ? <Loading /> :
                                 topSneakers.map(sneaker => (
-                                    <Sneaker sneaker={sneaker} key={sneaker.uuid} />
+                                    <Sneaker sneaker={sneaker} key={sneaker.uuid} id={sneaker.urlKey} />
                                 ))
                         }
                     </div>
@@ -82,10 +83,12 @@ const SneakerSrc = ({ sneakersSrc }) => (
     </div>
 )
 
-const Sneaker = ({ sneaker }) => (
+const Sneaker = ({ sneaker, id }) => (
     <div className="product" style={{ margin: "50px" }}>
-        <Link to={`/stockx/${sneaker.urlKey}`}>
-            <p>{sneaker.name}</p>
+        <Link to={`/stockx/${id}`}>
+            <button onClick={() => getSneakersInfo(id)}>
+                <p>{sneaker.name}</p>
+            </button>
         </Link>
         <img src={sneaker.image} alt="" style={{ width: "150px" }} />
         <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>

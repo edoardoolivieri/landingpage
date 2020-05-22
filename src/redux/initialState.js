@@ -1,4 +1,6 @@
 export default {
     topSneakers: [],
-    isLoadedSneakers: false
+    isLoadedSneakers: false,
+    sneakerInfo: {},
+    sneaker: []
 }

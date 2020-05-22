@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
 import Stockx from "../../modules/stockx/containers/Stockx";
-import StockxSingle from "../../modules/stockx/components/StockxSingle";
+import StockxSingle from "../../modules/stockx/containers/StockxSingle";
 
 
 export default class App extends Component {
@@ -12,6 +12,7 @@ export default class App extends Component {
     const { init } = this.props
     init()
   }
+  
   render() {
     return (
       <>

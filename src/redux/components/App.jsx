@@ -1,60 +1,51 @@
-import React, { Component } from "react"
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom"
+import React, { useRef } from "react"
+import { BrowserRouter as Router, Route, withRouter, useLocation } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
 import Stockx from "../../modules/stockx/containers/Stockx";
 import StockxSingle from "../../modules/stockx/containers/StockxSingle";
+import { useEffect } from "react";
 
 
-export default class App extends Component {
-  componentDidMount = () => {
-    const { init } = this.props
+export default ({ init }) => {
+
+  useEffect(() => {
     init()
-  }
-  
-  render() {
-    return (
-      <>
-        <Router>
-          <Scroller />
-          <Route exact={true} path="/" component={Home} />
-          <Route exact={true} path="/stockx" component={Stockx} />
-          <Route exact={true} path="/stockx/:id" component={StockxSingle} />
-        </Router>
-      </>
-    )
-  }
+  }, [])
 
+  return (
+    <>
+      <Router>
+        <Scroller />
+        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/stockx" component={Stockx} />
+        <Route exact={true} path="/stockx/:id" component={StockxSingle} />
+      </Router>
+    </>
+  )
 }
 
-// export default ({ init }) => {
 
-//   // init()
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
-//   return (
-//     <>
-//       <Router>
-//         <Scroller />
-//         <Route exact={true} path="/" component={Home} />
-//         <Route exact={true} path="/stockx" component={Stockx} />
-//         <Route exact={true} path="/stockx/:id" component={StockxSingle} />
-//       </Router>
-//     </>
-//   )
-// }
-
-class ScrollToTop extends React.Component {
-  componentDidUpdate(prevProps) {
-    if (
-      this.props.location.pathname !== prevProps.location.pathname
-    ) {
+export const ScrollToTopController = () => {
+  let location = useLocation();
+  const pathname = location.pathname
+  const prevCountRef = usePrevious(pathname);
+  useEffect(() => {
+    if (pathname !== prevCountRef) {
       window.scrollTo(0, 0);
     }
-  }
+  });
+  return null;
+};
 
-  render() {
-    return null;
-  }
-}
-const Scroller = withRouter(ScrollToTop);
+
+const Scroller = withRouter(ScrollToTopController)

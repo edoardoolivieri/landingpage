@@ -17,7 +17,44 @@ export default class News extends Component {
             autoplay: true,
             speed: 2000,
             autoplaySpeed: 2000,
-            cssEase: "linear"
+            cssEase: "linear",
+            responsive: [
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        initialSlide: 1,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 1025,
+                    settings: {
+                        slidesToShow: 6,
+                        slidesToScroll: 6,
+                        initialSlide: 1,
+                        arrows: true
+                    }
+                }
+            ]
         }
 
         return (

@@ -38,20 +38,18 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                     <h1>Top products of the month</h1>
                     <p>testing children props</p>
                 </Col>
-                <Col>
-                    <div className="top-product">
+                <Col lg={12} md={12} sm={12} xs={12}>
+                    <Row className="top-product">
                         {
                             !isLoadedSneakers ? <Loading /> :
                                 topSneakers.map(sneaker => (
-                                    <Sneaker sneaker={sneaker} key={sneaker.uuid} id={sneaker.urlKey} />
+                                    <Col lg={4} md={6} sm={12} xs={12}><Sneaker sneaker={sneaker} key={sneaker.uuid} id={sneaker.urlKey} /></Col>
                                 ))
                         }
-                    </div>
+                    </Row>
                 </Col>
             </Row>
-            <Row className="mt-100">
-                <h3>Search your favorite item on Stockx</h3>
-            </Row>
+            <Row className="mt-100"><Col lg={12}><h3>Search your favorite item on Stockx</h3></Col></Row>
             <Row>
                 <Col lg={12}>
                     <SearchBar searchFunction={getSearchSneakers} />
@@ -83,7 +81,7 @@ const SneakerSrc = ({ sneakersSrc }) => (
 )
 
 const Sneaker = ({ sneaker, id }) => (
-    <div className="product" style={{ margin: "50px" }}>
+    <div className="product">
         <Link to={`/stockx/${id}`}>
             <p>{sneaker.name}</p>
         </Link>

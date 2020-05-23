@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         sneakerInfo: state.sneakerInfo,
         sneaker: state.sneaker,
+        isLoadedSneakers: state.isLoadedSneakers,
         id: ownProps.match.params.id
     }
 }

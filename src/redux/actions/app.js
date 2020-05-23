@@ -3,7 +3,7 @@ import { NotificationManager } from "react-notifications";
 
 export const stockxAPI = require('stockx-api');
 export const stockX = new stockxAPI({
-    proxy: 'pr.blankpremium.co.uk:7777:customer-2L7WPHIE-cc-gb:6F4KYR7Z',
+    // proxy: 'pr.blankpremium.co.uk:7777:customer-2L7WPHIE-cc-gb:6F4KYR7Z',
     currency: 'GBP'
 });
 

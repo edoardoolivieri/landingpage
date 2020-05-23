@@ -3,60 +3,25 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import Navbar from "../../navbar/Navbar.jsx"
 import extract from "../../..//lib/utils/extractValue.js"
 import moment from 'moment';
-// import { stockX } from "../../../redux/actions/app"
-import { getSneaker, getSneakersInfo } from "../../../redux/actions/app"
-import _ from "underscore"
 import Loading from "../../../lib/components/Loading.jsx";
+import _ from "underscore"
 
 export default class StockxSingle extends Component {
     constructor(props) {
         super();
         this.state = {
-            error: null,
             isLoaded: false,
             show: false,
-            infoMarket: null
+            infoMarket: null,
         }
-        const id = extract(["match", "params", "id"], props)
-        if (id) {
-            getSneakersInfo(id)
-            // getSneaker(id)
-        }
+
     }
 
-    // getsneakersInfo = (sneakerInfo) => {
-    //     stockX.fetchProductDetails(`https://stockx.com/${sneakerInfo}`)
-    //         .then((infos) => {
-    //             this.setState({
-    //                 isLoaded: true,
-    //                 sneakerInfo: infos
-    //             })
-    //         },
-    //             (error) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     error
-    //                 });
-    //             }
-    //         )
-    // };
-
-    // getSneaker = (sneakerInfo) => {
-    //     stockX.searchProducts(sneakerInfo, { limit: 1 })
-    //         .then((data) => {
-    //             this.setState({
-    //                 isLoaded: true,
-    //                 sneaker: data
-    //             })
-    //         },
-    //             (error) => {
-    //                 this.setState({
-    //                     isLoaded: true,
-    //                     error
-    //                 });
-    //             }
-    //         )
-    // };
+    componentWillMount() {
+        const { id } = this.props
+        this.props.getSneakersInfo(id)
+        this.props.getSneaker(id)
+    }
 
     onClick = (variant) => {
         this.setState({

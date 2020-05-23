@@ -3,7 +3,7 @@ import {
     connect
 } from "react-redux"
 import {
-    getSneakersInfo,
+    getSneakers,
 } from "../../../redux/actions/app"
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        getSneakersInfo: (id) => dispatch(getSneakersInfo(id))
+        getSneakers: (id) => dispatch(getSneakers(id))
     }
 }
 

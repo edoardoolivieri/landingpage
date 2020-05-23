@@ -4,7 +4,7 @@ import actions from "../actions/names"
 import _ from "underscore"
 
 // Stockx get Sneaker Info
-export const sneakerInfo = (state = initialState.sneakerInfo, action) => {
+export const sneakerInfo = (state = initialState.sneakerInfo, action ) => {
     switch (action.type) {
         case actions.FETCH_INFORMATION_SUCCESS:
             return action.sneakerInfo

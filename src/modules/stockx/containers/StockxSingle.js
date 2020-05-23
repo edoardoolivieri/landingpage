@@ -4,6 +4,7 @@ import {
 } from "react-redux"
 import {
     getSneakersInfo,
+    getSneaker
 } from "../../../redux/actions/app"
 
 const mapStateToProps = (state, ownProps) => {
@@ -16,7 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSneakersInfo: (id) => dispatch(getSneakersInfo(id))
+        getSneakersInfo: (id) => dispatch(getSneakersInfo(id)),
+        getSneaker: (id) => dispatch(getSneaker(id))
     }
 }
 

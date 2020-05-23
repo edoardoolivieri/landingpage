@@ -28,6 +28,22 @@ export default class App extends Component {
 
 }
 
+// export default ({ init }) => {
+
+//   // init()
+
+//   return (
+//     <>
+//       <Router>
+//         <Scroller />
+//         <Route exact={true} path="/" component={Home} />
+//         <Route exact={true} path="/stockx" component={Stockx} />
+//         <Route exact={true} path="/stockx/:id" component={StockxSingle} />
+//       </Router>
+//     </>
+//   )
+// }
+
 class ScrollToTop extends React.Component {
   componentDidUpdate(prevProps) {
     if (

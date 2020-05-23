@@ -3,12 +3,12 @@ import { NotificationManager } from "react-notifications";
 
 export const stockxAPI = require('stockx-api');
 export const stockX = new stockxAPI({
-    proxy: '168.81.222.129:3718',
+    proxy: 'pr.blankpremium.co.uk:7777:customer-2L7WPHIE-cc-gb:6F4KYR7Z',
     currency: 'GBP'
 });
 
-// StockX get sneakers 
-export const getSneakers = () => async dispatch => {
+// StockX get Top Sneakers 
+export const getSneakers = (id) => async dispatch => {
     try {
         const resp = await stockX.searchProducts(('SB'), { limit: 3 })
         dispatch({
@@ -31,19 +31,18 @@ export const getSneakers = () => async dispatch => {
 export const getSneakersInfo = (id) => async dispatch => {
     try {
         const resp = await stockX.fetchProductDetails(`https://stockx.com/${id}`)
-        console.log(resp)
         dispatch({
             type: actions.FETCH_INFORMATION_SUCCESS,
             sneakerInfo: resp
         })
-        NotificationManager.success("StockX fetch success")
+        // NotificationManager.success("StockX fetch success")
     }
     catch (error) {
         dispatch({
             type: actions.FETCH_INFORMATION_FAILURE,
             error
         })
-        NotificationManager.error(error.message)
+        // NotificationManager.error(error.message)
     }
 }
 
@@ -51,18 +50,18 @@ export const getSneakersInfo = (id) => async dispatch => {
 // Stockx get sneaker
 export const getSneaker = (id) => async dispatch => {
     try {
-        const resp = await stockX.searchProducts(id, { limit: 1 })
+        const resp = await stockX.searchProducts(`${id}`, { limit: 1 })
         dispatch({
             type: actions.FETCH_SINGLE_SUCCESS,
             sneaker: resp
         })
-        NotificationManager.success("StockX fetch success")
+        // NotificationManager.success("StockX fetch success")
     }
     catch (error) {
         dispatch({
             type: actions.FETCH_SINGLE_FAILURE,
             error
         })
-        NotificationManager.error(error.message)
+        // NotificationManager.error(error.message)
     }
 }

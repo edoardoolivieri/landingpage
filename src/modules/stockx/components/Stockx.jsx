@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import Loading from "../../../lib/components/Loading.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
 import SearchBar from "../../../lib/components/Search-bar.jsx"
-import Slider from "../../../lib/components/Slider.jsx"
+// import Slider from "../../../lib/components/Slider.jsx"
 import { stockX } from "../../../redux/actions/app"
 import moment from 'moment';
 import { Link } from 'react-router-dom'
@@ -56,13 +56,12 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    {
-                        !isLoaded ? <Loading /> :
-                            <Slider items={_.map(sneakersSrc, (sneakersSrc) =>
-                                <SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} />)} />
-                    }
-                </Col>
+                {
+                    !isLoaded ? <Loading /> :
+                        sneakersSrc.map(sneakersSrc => (
+                            <Col lg={4} md={6} sm={12} xs={12}><SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} /></Col>
+                        ))
+                }
             </Row>
         </Container>
     )
@@ -70,7 +69,7 @@ export default ({ topSneakers, isLoadedSneakers }) => {
 
 
 const SneakerSrc = ({ sneakersSrc }) => (
-    <div className="product" style={{ margin: "50px" }}>
+    <div className="product">
         <Link to={`/stockx/${sneakersSrc.urlKey}`}>
             <p>{sneakersSrc.name}</p>
         </Link>

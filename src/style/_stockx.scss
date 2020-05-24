@@ -7,6 +7,7 @@
     box-shadow: 0 0 6px rgba(0,0,0,0.2);
     padding: 12px;
     width: 100%;
+    min-height: 280px;
   }
   
   
@@ -115,4 +116,12 @@
     border: 0px;
     margin: 0px 8px;
     font-size: 12px;
+}
+
+.select-value{
+    display: flex;
+    align-items: center;
+    .MuiFormControl-root{
+        width: 100% !important;
+    }
 }

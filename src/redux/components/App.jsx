@@ -1,12 +1,10 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 import { BrowserRouter as Router, Route, withRouter, useLocation } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
 import Stockx from "../../modules/stockx/containers/Stockx";
 import StockxSingle from "../../modules/stockx/containers/StockxSingle";
-import { useEffect } from "react";
-
 
 export default ({ init }) => {
 

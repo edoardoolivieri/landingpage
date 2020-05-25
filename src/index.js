@@ -1,18 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './style/App.scss';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './style/App.scss'
 import { Provider } from "react-redux"
 import store from "./redux/store"
-import App from './redux/containers/App';
+import App from './redux/containers/App'
 import { NotificationContainer } from "react-notifications"
 import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-        <NotificationContainer />
-    </Provider>,
+        <Provider store={store}>
+            <App />
+            <NotificationContainer />
+        </Provider>,
     document.getElementById("root")
 )
 

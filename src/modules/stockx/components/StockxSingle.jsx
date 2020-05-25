@@ -97,10 +97,9 @@ export default ({ getSneakersInfo, getSneaker, id, sneakerInfo, sneaker, isLoade
                             </Col>
 
                         </Row>
-
                         <Row>
-                            <Col lg={6} md={6} sm={6} xs={6} className="title-value"><h3 className="float-l">Market Value</h3></Col>
-                            <Col lg={6} md={6} sm={6} xs={6} className="select-value">
+                            <Col lg={7} md={7} sm={12} xs={12} className="title-value"><h3 className="float-l">Market Value</h3></Col>
+                            <Col lg={5} md={5} sm={12} xs={12} className="select-value">
                                 <FormControl variant="outlined" className={classes.formControl}>
                                     <InputLabel>Size</InputLabel>
                                     <Select

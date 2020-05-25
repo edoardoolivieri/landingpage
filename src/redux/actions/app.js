@@ -10,7 +10,7 @@ export const stockX = new stockxAPI({
 // StockX get Top Sneakers 
 export const getSneakers = (id) => async dispatch => {
     try {
-        const resp = await stockX.searchProducts(('SB'), { limit: 3 })
+        const resp = await stockX.searchProducts((['Jordan 1']), { limit: 3 })
         dispatch({
             type: actions.FETCH_STOCKX_SUCCESS,
             topSneakers: resp

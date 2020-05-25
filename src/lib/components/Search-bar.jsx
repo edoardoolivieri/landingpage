@@ -26,7 +26,7 @@ export default class SearchBar extends Component {
         value={this.state.value}
         type="text"
         className="form-search form-control"
-        placeholder="Search for product"
+        placeholder="Search for products"
         onChange={this.handleChange}
         />
       </form>

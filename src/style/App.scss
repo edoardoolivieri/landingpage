@@ -9,7 +9,6 @@ $secondColor: #000839;
 @import "brands.scss";
 @import "footer.scss";
 @import "stockx.scss";
-@import "responsive.scss";
 
 body{
   font-family: 'Exo 2', sans-serif !important;
@@ -21,7 +20,7 @@ button:focus {
 }
 
 .mt-100{margin-top: 100px;}
-
+.pt-16{padding-top: 16px}
 
 .center{
   align-items: center;

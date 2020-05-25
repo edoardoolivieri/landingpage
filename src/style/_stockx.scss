@@ -1,16 +1,50 @@
+// Stockx Page
+
 .top-product{
     display: flex;
   }
   
   .product{
     text-align: center;
-    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    padding: 24px 12px;
+    width: 100%;
+    min-height: 280px;
+    margin: 24px 0px 0px 0px;
+    border-radius: 4px;
+    img{
+        margin: 24px 0px;
+        width: 180px;
+    }
+    p{
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: $primaryColor;
+    }
+    h4{
+        font-size: 16px;
+        color: $secondColor;
+    }
+
+  }
+  .click-card:hover{
+    text-decoration: none;
+}
+  
+  .product-sneaker-search{
+    text-align: center;
+    box-shadow: 0 0 0px rgba(0,0,0,0) !important;
     padding: 12px;
     width: 100%;
     min-height: 280px;
+    margin: 24px 0px 0px 0px;
+    h4{
+        margin-bottom: 12px;
+        color: $primaryColor;
+        font-weight: 200;
+    }
   }
-  
-  
+
   .slick-list {
     position: relative;
     display: block;
@@ -43,6 +77,22 @@
     height: 400px;
   }
 
+  .short-info{
+    display: flex;
+    justify-content: space-around;
+    p{
+        font-size: 12px;
+        margin-bottom: 0px;
+        font-weight: bold;
+    }
+  }
+
+  .button-loadmore{
+      text-align: center;
+      button{
+          margin: 62px 0px !important;
+      }
+  }
 
 
 
@@ -72,27 +122,6 @@
     }
 }
 
-.btn-stockx{
-    margin-top: 32px !important;
-    padding: 8px 24px !important;
-    background: $secondColor !important;
-    border-color: $secondColor !important;
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2) !important;
-    p{
-        margin-bottom: 0px;
-        margin-right: 12px
-    }
-}
-
-.btn-stockx:hover,
-.btn-stockx:focus,
-.btn-stockx:active{
-    background: $secondColor !important;
-    border-color: $secondColor !important;
-    box-shadow: 0 0 0 0rem black !important;
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2) !important
-}
-
 .top-info{
     width: 150px;
     float: left;
@@ -103,7 +132,7 @@
 }
 
 .title-value{
-    margin: 62px 0px;
+    margin: 62px 0px 48px 0px;
     h3{
         font-size: 32px;
         color: $secondColor;
@@ -125,3 +154,41 @@
         width: 100% !important;
     }
 }
+
+.info-market-style{
+    text-align: center;
+    margin: 12px 0px;
+    p{
+        margin-bottom: 0px;
+        color: $secondColor;
+        font-weight: 200;
+        font-size: 14px;
+    }
+    span{
+        font-weight: bold;
+        color: $primaryColor;
+        font-size: 16px;
+        margin-left: 8px;
+    }
+}
+
+.title-value{
+    margin: 62px 0px 48px 0px;
+}
+
+@media only screen and ( min-width: 0px ) and (max-width : 320px) {
+    .title-value{
+        margin: 24px 0px 12px 0px;
+    }
+    
+}
+@media only screen and ( min-width: 321px ) and ( max-width : 767px) {
+    .title-value{
+        margin: 62px 0px 12px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+@media only screen and ( min-width: 768px ) and (max-width : 992px) {}
+@media only screen and ( min-width: 993px ) and (max-width : 1200px) {}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import Loading from "../../../lib/components/Loading.jsx"
-import Navbar from "../../navbar/Navbar.jsx"
+import Navbar from "../../../lib/components/navbar/Navbar.jsx"
 import SearchBar from "../../../lib/components/Search-bar.jsx"
 import { stockX } from "../../../redux/actions/app"
 import TopSneaker from "../../../lib/components/sneaker-card/SneakerCard"
@@ -32,7 +32,6 @@ export default ({ topSneakers, isLoadedSneakers }) => {
 
     return (
         <Container >
-            <Navbar />
             <Row className="mt-100">
                 <Col lg={12}>
                     <h1>Top products of the month</h1>
@@ -59,7 +58,7 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                 {
                     !isLoaded ? <Loading /> :
                         sneakersSrc.slice(0, limitList).map(sneakersSrc => (
-                            <Col lg={4} md={6} sm={12} xs={12}><SneakerResults sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} id={sneakersSrc.uuid} /></Col>
+                            <Col lg={4} md={6} sm={12} xs={12}><SneakerResults sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} id={sneakersSrc.urlKey} /></Col>
                         ))
                 }
             </Row>

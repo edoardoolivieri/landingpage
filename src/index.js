@@ -7,7 +7,6 @@ import App from './redux/containers/App';
 import { NotificationContainer } from "react-notifications"
 import * as serviceWorker from './serviceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(
     <Provider store={store}>
         <App />

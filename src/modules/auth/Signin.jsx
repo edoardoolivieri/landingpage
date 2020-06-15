@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
-import Navbar from "../../modules/navbar/Navbar"
+import Navbar from "../../lib/components/navbar/Navbar"
+import { signInWithGoogle } from "../../lib/utils/firebase"
 import _ from "underscore"
 
 export default () => {
@@ -20,10 +21,9 @@ export default () => {
         event.persist();
         setValues(values => ({ ...values, [event.target.name]: event.target.value }));
     }
-    
+
     return (
         <Container>
-            <Navbar />
             <div className="mt-100"></div>
             <form onSubmit={handleSubmit}>
 
@@ -34,6 +34,7 @@ export default () => {
                 <input type="password" name="password" vale={password} onChange={handleChange} required />
 
                 <Button type="submit">Sign In</Button>
+                <Button onClick={signInWithGoogle}>Sign in with Google</Button>
             </form>
         </Container>
     )

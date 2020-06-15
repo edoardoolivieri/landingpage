@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import Navbar from "../../navbar/Navbar.jsx"
+import Navbar from "../../../lib/components/navbar/Navbar.jsx"
 import extract from "../../..//lib/utils/extractValue.js"
 import moment from 'moment';
 import Loading from "../../../lib/components/Loading.jsx";
@@ -60,9 +60,9 @@ export default ({ getSneakersInfo, getSneaker, id, sneakerInfo, sneaker, isLoade
     const retailPrice = extract([0, "retail"], sneaker)
     const stockxLink = `https://stockx.com/${extract([0, "urlKey"], sneaker)}`
 
+
     return (
         <Container>
-            <Navbar />
             <div className="mt-100"></div>
             {
                 !isLoadedSneakers ? <Loading /> :

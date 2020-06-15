@@ -3,10 +3,9 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import Loading from "../../../lib/components/Loading.jsx"
 import Navbar from "../../navbar/Navbar.jsx"
 import SearchBar from "../../../lib/components/Search-bar.jsx"
-// import Slider from "../../../lib/components/Slider.jsx"
 import { stockX } from "../../../redux/actions/app"
-import moment from 'moment';
-import { Link } from 'react-router-dom'
+import TopSneaker from "../../../lib/components/sneaker-card/SneakerCard"
+import SneakerResults from "../../../lib/components/sneaker-card/SneakerSrcCard"
 import _ from "underscore"
 
 export default ({ topSneakers, isLoadedSneakers }) => {
@@ -44,7 +43,7 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                         {
                             !isLoadedSneakers ? <Loading /> :
                                 topSneakers.map(sneaker => (
-                                    <Col lg={4} md={6} sm={12} xs={12}><Sneaker sneaker={sneaker} key={sneaker.uuid} id={sneaker.urlKey} /></Col>
+                                    <Col lg={4} md={6} sm={12} xs={12}><TopSneaker sneaker={sneaker} key={sneaker.uuid} id={sneaker.urlKey} /></Col>
                                 ))
                         }
                     </Row>
@@ -60,7 +59,7 @@ export default ({ topSneakers, isLoadedSneakers }) => {
                 {
                     !isLoaded ? <Loading /> :
                         sneakersSrc.slice(0, limitList).map(sneakersSrc => (
-                            <Col lg={4} md={6} sm={12} xs={12}><SneakerSrc sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} id={sneakersSrc.uuid} /></Col>
+                            <Col lg={4} md={6} sm={12} xs={12}><SneakerResults sneakersSrc={sneakersSrc} key={sneakersSrc.uuid} id={sneakersSrc.uuid} /></Col>
                         ))
                 }
             </Row>
@@ -72,28 +71,3 @@ export default ({ topSneakers, isLoadedSneakers }) => {
         </Container>
     )
 }
-
-
-const SneakerSrc = ({ sneakersSrc, id }) => (
-    <Link to={`/stockx/${id}`} className="click-card">
-        <div className="product-sneaker-search product">
-            <img src={sneakersSrc.image} alt="" />
-            <h4>{sneakersSrc.name}</h4>
-            <div className="short-info">
-                <p>{moment(sneakersSrc.releaseDate).format("DD MMM, YYYY")}</p>
-                <p>£ {sneakersSrc.market.averageDeadstockPrice}+</p>
-            </div>
-        </div>
-    </Link>
-)
-
-const Sneaker = ({ sneaker, id }) => (
-    <Link to={`/stockx/${id}`} className="click-card">
-        <div className="product">
-            <h4>{sneaker.name}</h4>
-            <img src={sneaker.image} alt="" />
-            <p>Release: {moment(sneaker.releaseDate).format("DD MMM, YYYY")}</p>
-            <p>avarage price : £ {sneaker.market.averageDeadstockPrice}</p>
-        </div>
-    </Link>
-)

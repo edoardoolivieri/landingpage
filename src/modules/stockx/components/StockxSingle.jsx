@@ -59,6 +59,7 @@ export default ({ getSneakersInfo, getSneaker, id, sneakerInfo, sneaker, isLoade
     const releaseDate = moment(extract([0, "releaseDate"], sneaker)).format("DD MMM, YYYY")
     const retailPrice = extract([0, "retail"], sneaker)
     const stockxLink = `https://stockx.com/${extract([0, "urlKey"], sneaker)}`
+    const imgSnk = extract([0, "image"], sneaker)
 
 
     return (
@@ -68,18 +69,10 @@ export default ({ getSneakersInfo, getSneaker, id, sneakerInfo, sneaker, isLoade
                 !isLoadedSneakers ? <Loading /> :
                     <>
                         <Row>
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                                <div className="top-info">
-                                    <p>{sneakerInfo.pid}</p>
-                                </div>
-                            </Col>
+                            <Col lg={12} md={12} sm={12} xs={12}> <div className="top-info"><p>{sneakerInfo.pid}</p></div></Col>
                         </Row>
                         <Row>
-                            <Col lg={7} md={6} sm={12} xs={12}>
-                                <div className="img-product">
-                                    <img src={extract([0, "image"], sneaker)} alt="Sneaker" />
-                                </div>
-                            </Col>
+                            <Col lg={7} md={6} sm={12} xs={12}><div className="img-product"><img src={imgSnk} alt="Sneaker" /></div></Col>
                             <Col lg={5} md={6} sm={12} xs={12}>
                                 <div className="title-product">
                                     <h1>{sneakerInfo.name}</h1>

@@ -31,7 +31,6 @@ export default ({ topSneakers, isLoadedSneakers }) => {
             )
     }
 
-
     return (
         <>
             <Container >

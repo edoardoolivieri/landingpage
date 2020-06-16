@@ -7,9 +7,9 @@ import Stockx from "../../modules/stockx/containers/Stockx";
 import StockxSingle from "../../modules/stockx/containers/StockxSingle";
 import Navbar from "../../lib/components/navbar/Navbar"
 import Footer from "../../lib/components/footer/Footer"
-import SignIn from "../../modules/auth/Signin"
-import SignUp from "../../modules/auth/Signup"
-import { auth } from "../../lib/utils/firebase"
+import SignIn from "../../modules/auth/Login"
+import SignUp from "../../modules/auth/Register"
+import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
 import { useEffect } from "react";
 
 
@@ -18,9 +18,21 @@ export default ({ init }) => {
   const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => setCurrentUser(user))
+    auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = createUserProfileDocument(userAuth);
+        (await userRef).onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+        })
+      }
+      setCurrentUser({ currentUser: userAuth })
+    })
     init()
-  }, [])
+  }, [init])
+
 
   return (
     <>

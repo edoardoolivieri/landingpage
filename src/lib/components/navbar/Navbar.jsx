@@ -36,7 +36,9 @@ class Navbarr extends Component {
           <Nav>
             <Link to="/"> Home</Link>
             <Link to="/stockx"> Stockx</Link>
-            {!currentUser ? <Link to="/signin"> Sign in</Link> : <Link to="/"> Log out</Link>}
+            {
+              currentUser === null ? (<button onClick={() => auth.signOut()}>Log out</button>) : (<Link to="/signin"> Sign in</Link>)
+            }
           </Nav>
         </Navbar>
       </Container>

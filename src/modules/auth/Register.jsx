@@ -77,11 +77,8 @@ export default (initialValue) => {
 
                 <Button type="submit">Sign Up</Button>
 
-                <Link to="/signin">
-                    <Button>
-                        Sign in
-                    </Button>
-                </Link>
+                <Link to="/signin"><Button>Sign in</Button></Link>
+                    
             </form>
         </Container>
     )

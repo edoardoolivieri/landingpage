@@ -4,7 +4,6 @@ import { Image } from 'react-bootstrap';
 import {Link} from "react-router-dom"
 
 const Mainbrands = styled.div`
-  margin: 250px 50px 50px 50px;
   display: flex;
   flex-direction: column;
   h1{
@@ -26,14 +25,23 @@ const Imagesupreme = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 0 12px;
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+  }
 `
 
 const Clothing = styled.div`
   width: 50%;
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+  }
 `
 
 const Sneakers = styled.div`
   width: 50%;
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+  }
 `
 
 const Containercloth = styled.div`
@@ -45,6 +53,9 @@ const Brandslogo = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 50px;
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+  }
 `
 
 class Brands extends Component {

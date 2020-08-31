@@ -81,3 +81,20 @@
   }
 }
 
+// Custom changes between tablet and desktop
+@media only screen and (max-width: 1200px) {}
+
+// This covers tablet devices
+@media only screen and (max-width: 1024px) {}
+
+// This covers all mobile devices
+@media only screen and (max-width: 992px) {
+  .content-right{
+    display: none;
+  }
+  .content-left{
+    .image-sneaker{
+      display: none;
+    }
+  }
+}

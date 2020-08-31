@@ -18,9 +18,15 @@ const Maincontainer = styled.div`
 const Img = styled.div`
   width: 60%;
   margin-right: 40px;
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 `
 const Content = styled.div`
   width: 44%;
+  @media only screen and (max-width: 992px) {
+    width: 100%;
+  }
 `
 
 class Home extends Component {
@@ -59,7 +65,7 @@ class Home extends Component {
                   <div className="info">
                     <p className="fix-margin">Buy.</p>
                     <p>Sell.</p>
-                    <p>Trade.</p>
+                    <p>Stock.</p>
                   </div>
                 <p className="description">
                   Sed eu pharetra elit. Duis pulvinar cursus ornare. Aliquam nulla tellus, consequat et nisl sit amet, suscipit gravida diam. Praesent nulla velit, dictum vitae sollicitudin at, egestas sed nisi.

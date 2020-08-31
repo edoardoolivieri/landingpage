@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import FormInput from "../../lib/components/inputs/formInput"
 import { auth, signInWithGoogle } from "../../lib/utils/firebase"
@@ -46,13 +46,8 @@ export default () => {
                 <Button type="submit">Sign In</Button>
                 <Button onClick={signInWithGoogle}>Sign in with Google</Button>
 
-
-                <Link to="/signup">
-                    <Button>
-                        Sign Up
-                    </Button>
-                </Link>
-
+                <Link to="/signup"><Button>Sign Up</Button></Link>
+                
             </form>
         </Container>
     )

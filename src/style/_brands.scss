@@ -63,3 +63,10 @@
   transform: translateY(-3px);
 }
 
+@media only screen and (max-width: 992px) {
+  .first-brands, .box-clothing{
+    flex-direction: column;
+  }
+  
+
+}

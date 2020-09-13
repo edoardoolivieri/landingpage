@@ -25,7 +25,7 @@ const Nav = styled.div`
   }
 `
 export default ({ currentUser }) => {
-  console.log(currentUser)
+
   return (
     <Container>
       <Navbar>
@@ -37,7 +37,7 @@ export default ({ currentUser }) => {
           <Link to="/stockx"> Stockx</Link>
           {
             currentUser ? (
-              <button onClick={() => auth.signOut()}>Log out</button>
+              <div onClick={() => auth.signOut()}>Log out</div>
             ) : (
                 <Link to="/signin">Sign in</Link>
               )

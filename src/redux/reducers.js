@@ -3,6 +3,7 @@ import { combineReducers } from "redux"
 import * as appReducers from "./reducers/app"
 import * as stockx from "./reducers/stockx"
 import * as stockxSingle from "./reducers/stockxSingle"
+import * as user from "./reducers/user"
 
 import _ from "underscore"
 
@@ -10,7 +11,8 @@ import _ from "underscore"
 _.extend(
     appReducers,
     stockx,
-    stockxSingle
+    stockxSingle,
+    user
 )
 
 export default combineReducers(appReducers)

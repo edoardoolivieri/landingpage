@@ -3,6 +3,7 @@ import { Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import FormInput from "../../lib/components/inputs/formInput"
 import { auth, signInWithGoogle } from "../../lib/utils/firebase"
+import { NotificationManager } from "react-notifications";
 import _ from "underscore"
 
 export default () => {
@@ -17,14 +18,14 @@ export default () => {
             setEmail("")
             setPassword("")
         } catch (error) {
-            console.log(error)
+            NotificationManager.error(error.message)
         }
     }
 
     return (
         <Container>
             <form onSubmit={handleSubmit}>
-
+                
                 <FormInput
                     type="email"
                     name="email"

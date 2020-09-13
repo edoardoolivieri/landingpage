@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import Navbar from "../../../lib/components/navbar/Navbar.jsx"
 import extract from "../../..//lib/utils/extractValue.js"
 import moment from 'moment';
 import Loading from "../../../lib/components/Loading.jsx";

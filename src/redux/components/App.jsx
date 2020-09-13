@@ -5,18 +5,16 @@ import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
 import Stockx from "../../modules/stockx/containers/Stockx";
 import StockxSingle from "../../modules/stockx/containers/StockxSingle";
-import Navbar from "../../lib/components/navbar/Navbar"
+import Navbar from "../../lib/components/navbar/containers/Navbar"
 import Footer from "../../lib/components/footer/Footer"
 import SignIn from "../../modules/auth/Login"
 import SignUp from "../../modules/auth/Register"
-import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
 import { useEffect } from "react";
+import { setCurrentUser } from "../actions/app"
+import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
 
 
-export default ({ init }) => {
-
-  const [currentUser, setCurrentUser] = useState(null)
-
+export default ({ init, setCurrentUser }) => {
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -28,7 +26,7 @@ export default ({ init }) => {
           })
         })
       }
-      setCurrentUser({ currentUser: userAuth })
+      setCurrentUser(userAuth)
     })
     init()
   }, [init])
@@ -37,7 +35,7 @@ export default ({ init }) => {
   return (
     <>
       <Router>
-        <Navbar currentUser={currentUser} />
+        <Navbar />
         <Scroller />
         <Switch>
           <Route exact={true} path="/" component={Home} />

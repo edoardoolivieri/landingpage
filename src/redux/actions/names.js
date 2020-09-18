@@ -12,5 +12,5 @@ export default {
     FETCH_SINGLE_SUCCESS: "Fetch Single Sneakers Success",
 
     SET_CURRENT_USER: "SET_CURRENT_USER",
-    SET_CURRENT_USER_FAILURE: "Set current user failure",
+    SET_CURRENT_USER_FAILURE: "SET_CURRENT_USER_FAILURE",
 }

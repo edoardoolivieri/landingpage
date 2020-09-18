@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import styled from 'styled-components';
 import { auth } from "../../../utils/firebase"
+import extract from "../../../utils/extractValue"
 
 const Navbar = styled.div`
   display: flex;
@@ -25,7 +26,7 @@ const Nav = styled.div`
   }
 `
 export default ({ currentUser }) => {
-
+  console.log(currentUser)
   return (
     <Container>
       <Navbar>
@@ -36,9 +37,11 @@ export default ({ currentUser }) => {
           <Link to="/"> Home</Link>
           <Link to="/stockx"> Stockx</Link>
           {
-            currentUser ? (
-              <div onClick={() => auth.signOut()}>Log out</div>
+            extract(["currentUser"], currentUser) ? (
+              <Link to="/" onClick={() => auth.signOut()}>Log out</Link>
+              
             ) : (
+                // <div onClick={() => auth.signOut()}>Log out</div>
                 <Link to="/signin">Sign in</Link>
               )
           }

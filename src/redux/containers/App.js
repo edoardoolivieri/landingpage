@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
         topSneakers: state.topSneakers,
         sneakerInfo: state.sneakerInfo,
         sneaker: state.sneaker,
+        currentUser: state.currentUser
     }
 }
 

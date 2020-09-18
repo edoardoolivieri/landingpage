@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { BrowserRouter as Router, Route, Switch, withRouter, useLocation } from "react-router-dom"
+import { Redirect, BrowserRouter as Router, Route, Switch, withRouter, useLocation } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
@@ -10,11 +10,12 @@ import Footer from "../../lib/components/footer/Footer"
 import SignIn from "../../modules/auth/Login"
 import SignUp from "../../modules/auth/Register"
 import { useEffect } from "react";
-import { setCurrentUser } from "../actions/app"
 import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
+import extract from "../../lib/utils/extractValue.js";
 
 
-export default ({ init, setCurrentUser }) => {
+export default ({ init, setCurrentUser, currentUser }) => {
+  console.log(currentUser)
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -42,8 +43,8 @@ export default ({ init, setCurrentUser }) => {
           <Route exact={true} path="/stockx" component={Stockx} />
           <Route exact={true} path="/stockx/:id" component={StockxSingle} />
 
-          <Route exact={true} path="/signin" component={SignIn} />
-          <Route exact={true} path="/signup" component={SignUp} />
+          <Route exact={true} path="/signin" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignIn />)} />
+          <Route exact={true} path="/signup" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignUp />)} />
         </Switch>
         <Footer />
       </Router>

@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap"
 import styled from 'styled-components';
 import { auth } from "../../../utils/firebase"
 import extract from "../../../utils/extractValue"
+import CartDropdown from "../../cart-dropdown/containers/CartDropdown";
 
 const Navbar = styled.div`
   display: flex;
@@ -39,12 +40,13 @@ export default ({ currentUser }) => {
           {
             extract(["currentUser"], currentUser) ? (
               <Link to="/" onClick={() => auth.signOut()}>Log out</Link>
-              
+
             ) : (
-                // <div onClick={() => auth.signOut()}>Log out</div>
                 <Link to="/signin">Sign in</Link>
               )
           }
+          <CartDropdown
+            img="/images/shopping-cart.svg" />
         </Nav>
       </Navbar>
     </Container>

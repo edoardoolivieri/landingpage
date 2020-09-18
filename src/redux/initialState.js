@@ -7,5 +7,7 @@ export default {
     sneaker: [],
 
     currentUser: null,
+
+    hidden: true,
     
 }

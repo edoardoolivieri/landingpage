@@ -39,7 +39,7 @@ export default ({ init, setCurrentUser, currentUser }) => {
         <Navbar />
         <Scroller />
         <Switch>
-          <Route exact={true} path="/" component={Home} />
+          <Route exact={true} path="/" component={Stockx} />
           <Route exact={true} path="/stockx" component={Stockx} />
           <Route exact={true} path="/stockx/:id" component={StockxSingle} />
 

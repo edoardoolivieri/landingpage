@@ -5,7 +5,7 @@ import FormInput from "../../lib/components/inputs/formInput"
 import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
 import _ from "underscore"
 
-export default (initialValue) => {
+export default () => {
 
     const [displayName, setDisplayName] = useState("")
     const [email, setEmail] = useState("")

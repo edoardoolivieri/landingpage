@@ -2,9 +2,9 @@ import CartDropdown from "../components/CartDropdown"
 import {
     connect
 } from "react-redux"
-import {
-    toggleCartHidden
-} from "../../../redux/actions/app"
+// import {
+//     toggleCartHidden
+// } from "redux/actions/app"
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        toggleCartHidden: () => dispatch(toggleCartHidden)
+        // toggleCartHidden: () => dispatch(toggleCartHidden)
     }
 }
 

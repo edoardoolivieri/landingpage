@@ -9,5 +9,9 @@ export default {
     
     FETCH_SINGLE_BEGIN: "Fetch Single Sneakers Begin",
     FETCH_SINGLE_FAILURE: "Fetch Single Sneakers Failure",
-    FETCH_SINGLE_SUCCESS: "Fetch Single Sneakers Success"
+    FETCH_SINGLE_SUCCESS: "Fetch Single Sneakers Success",
+
+    SET_CURRENT_USER: "SET_CURRENT_USER",
+    SET_CURRENT_USER_FAILURE: "SET_CURRENT_USER_FAILURE",
+
 }

@@ -5,14 +5,16 @@ import {
 import {
     getSneakers,
     getSneakersInfo,
-    getSneaker
+    getSneaker,
+    setCurrentUser
 } from "../actions/app"
 
 const mapStateToProps = (state, ownProps) => {
     return {
         topSneakers: state.topSneakers,
         sneakerInfo: state.sneakerInfo,
-        sneaker: state.sneaker
+        sneaker: state.sneaker,
+        currentUser: state.currentUser
     }
 }
 
@@ -22,6 +24,7 @@ const mapDispatchToProps = dispatch => {
             dispatch(getSneakers())
             dispatch(getSneakersInfo())
             dispatch(getSneaker())
+            dispatch(setCurrentUser())
         },
 
         getSneakers: () => {
@@ -34,6 +37,10 @@ const mapDispatchToProps = dispatch => {
 
         getSneaker: () => {
             dispatch(getSneaker())
+        },
+
+        setCurrentUser: (user) => {
+            dispatch(setCurrentUser(user))
         }
     }
 }

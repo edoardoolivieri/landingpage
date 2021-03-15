@@ -15,7 +15,7 @@ export const getSneakers = (id) => async dispatch => {
             type: actions.FETCH_STOCKX_SUCCESS,
             topSneakers: resp
         })
-        NotificationManager.success("StockX fetch success")
+        // NotificationManager.success("StockX fetch success")
     }
     catch (error) {
         dispatch({
@@ -65,3 +65,9 @@ export const getSneaker = (id) => async dispatch => {
         // NotificationManager.error(error.message)
     }
 }
+
+
+export const setCurrentUser = user =>  ({
+    type: actions.SET_CURRENT_USER,
+    payload: user
+})

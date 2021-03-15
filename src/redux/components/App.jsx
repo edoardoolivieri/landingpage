@@ -1,26 +1,52 @@
-import React, { useRef } from "react"
-import { BrowserRouter as Router, Route, withRouter, useLocation } from "react-router-dom"
+import React, { useRef, useState } from "react"
+import { Redirect, BrowserRouter as Router, Route, Switch, withRouter, useLocation } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-notifications/lib/notifications.css';
 import Home from "../../modules/home/Home.jsx";
 import Stockx from "../../modules/stockx/containers/Stockx";
 import StockxSingle from "../../modules/stockx/containers/StockxSingle";
+import Navbar from "../../lib/components/navbar/containers/Navbar"
+import Footer from "../../lib/components/footer/Footer"
+import SignIn from "../../modules/auth/Login"
+import SignUp from "../../modules/auth/Register"
 import { useEffect } from "react";
+import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
+import extract from "../../lib/utils/extractValue.js";
 
 
-export default ({ init }) => {
+export default ({ init, setCurrentUser, currentUser }) => {
 
   useEffect(() => {
+    auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = createUserProfileDocument(userAuth);
+        (await userRef).onSnapshot(snapShot => {
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
+          })
+        })
+      }
+      setCurrentUser(userAuth)
+    })
     init()
-  }, [])
+  }, [init])
+
 
   return (
     <>
       <Router>
+        <Navbar />
         <Scroller />
-        <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/stockx" component={Stockx} />
-        <Route exact={true} path="/stockx/:id" component={StockxSingle} />
+        <Switch>
+          <Route exact={true} path="/" component={Stockx} />
+          <Route exact={true} path="/stockx" component={Stockx} />
+          <Route exact={true} path="/stockx/:id" component={StockxSingle} />
+
+          {/* <Route exact={true} path="/signin" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignIn />)} />
+          <Route exact={true} path="/signup" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignUp />)} /> */}
+        </Switch>
+        <Footer />
       </Router>
     </>
   )

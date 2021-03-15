@@ -4,6 +4,10 @@ export default {
 
     topSneakers: [],
     sneakerInfo: {},
-    sneaker: []
+    sneaker: [],
+
+    currentUser: null,
+
+    hidden: true,
     
 }

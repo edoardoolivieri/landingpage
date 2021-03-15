@@ -8,6 +8,9 @@ const Cards = styled.div`
   justify-content: center;
   align-items: baseline;
   margin-top: 50px;
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+  }
 `
 
 const Maincards = styled.div`

@@ -1,4 +1,3 @@
-
 import initialState from "../initialState"
 import actions from "../actions/names"
 import _ from "underscore"

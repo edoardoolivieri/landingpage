@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import extract from "../../..//lib/utils/extractValue.js"
+import extract from "lib/utils/extractValue.js"
 import moment from 'moment';
-import Loading from "../../../lib/components/Loading.jsx";
+import Loading from "lib/components/Loading.jsx";
 import InfoMarket from "./InfoMarket"
 import { makeStyles } from '@material-ui/core/styles';
 import { InputLabel, FormControl, Select } from '@material-ui/core';

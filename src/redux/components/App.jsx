@@ -15,7 +15,7 @@ import extract from "../../lib/utils/extractValue.js";
 
 
 export default ({ init, setCurrentUser, currentUser }) => {
-  console.log(currentUser)
+
   useEffect(() => {
     auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -43,8 +43,8 @@ export default ({ init, setCurrentUser, currentUser }) => {
           <Route exact={true} path="/stockx" component={Stockx} />
           <Route exact={true} path="/stockx/:id" component={StockxSingle} />
 
-          <Route exact={true} path="/signin" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignIn />)} />
-          <Route exact={true} path="/signup" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignUp />)} />
+          {/* <Route exact={true} path="/signin" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignIn />)} />
+          <Route exact={true} path="/signup" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/" />) : (<SignUp />)} /> */}
         </Switch>
         <Footer />
       </Router>

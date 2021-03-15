@@ -8,13 +8,11 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        // currentUser: state.currentUser
     }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        // toggleCartHidden: () => dispatch(toggleCartHidden)
     }
 }
 

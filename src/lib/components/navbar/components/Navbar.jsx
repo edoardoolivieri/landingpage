@@ -27,7 +27,6 @@ const Nav = styled.div`
   }
 `
 export default ({ currentUser }) => {
-  console.log(currentUser)
   return (
     <Container>
       <Navbar>
@@ -35,9 +34,9 @@ export default ({ currentUser }) => {
           <h1>Dixit</h1>
         </div>
         <Nav>
-          <Link to="/"> Home</Link>
+          {/* <Link to="/"> Home</Link> */}
           <Link to="/stockx"> Stockx</Link>
-          {
+          {/* {
             extract(["currentUser"], currentUser) ? (
               <Link to="/" onClick={() => auth.signOut()}>Log out</Link>
 
@@ -46,7 +45,7 @@ export default ({ currentUser }) => {
               )
           }
           <CartDropdown
-            img="/images/shopping-cart.svg" />
+            img="/images/shopping-cart.svg" /> */}
         </Nav>
       </Navbar>
     </Container>

@@ -5,7 +5,7 @@ import {
 import {
     getSneakersInfo,
     getSneaker
-} from "../../../redux/actions/app"
+} from "redux/actions/app"
 
 const mapStateToProps = (state, ownProps) => {
     return {

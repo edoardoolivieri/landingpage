@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import { stockX } from "../../../redux/actions/app"
-import Loading from "../../../lib/components/Loading.jsx"
-import SearchBar from "../../../lib/components/Search-bar.jsx"
-import TopSneaker from "../../../lib/components/sneaker-card/SneakerCard"
-import SneakerResults from "../../../lib/components/sneaker-card/SneakerSrcCard"
+import { stockX } from "redux/actions/app"
+import Loading from "lib/components/Loading.jsx"
+import SearchBar from "lib/components/Search-bar.jsx"
+import TopSneaker from "lib/components/sneaker-card/SneakerCard"
+import SneakerResults from "lib/components/sneaker-card/SneakerSrcCard"
 import _ from "underscore"
 
 export default ({ topSneakers, isLoadedSneakers }) => {

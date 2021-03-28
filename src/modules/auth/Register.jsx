@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
-import FormInput from "../../lib/components/inputs/formInput"
-import { auth, createUserProfileDocument } from "../../lib/utils/firebase"
+import FormInput from "lib/components/inputs/formInput"
+import { auth, createUserProfileDocument } from "lib/utils/firebase"
+import { NotificationManager } from "react-notifications";
 import _ from "underscore"
 
 export default () => {
@@ -12,12 +13,11 @@ export default () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 
-
     const handleSubmit = async event => {
         event.preventDefault();
 
         if (password !== confirmPassword) {
-            alert("passwords don't match")
+            NotificationManager.error("passwords don't match")
             return;
         }
 
@@ -29,12 +29,12 @@ export default () => {
             setEmail("")
             setPassword("")
             setConfirmPassword("")
+            NotificationManager.success("Successfully signed up")
 
         } catch (error) {
-            // console.log(error);
+            NotificationManager.error(error.message)
         }
     }
-
 
     return (
         <Container>

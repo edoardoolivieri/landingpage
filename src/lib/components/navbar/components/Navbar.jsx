@@ -33,9 +33,7 @@ export default ({ currentUser }) => {
           <h1>DS</h1>
         </div>
         <Nav>
-          {user?.id && <Link to="/home"> Home</Link>}
-          <Link to="/stockx"> Stockx</Link>
-
+          <Link to="/stockx"> Stockx</Link> 
           {user === null &&
             <>
               <Link to="/signin">Sign in</Link>

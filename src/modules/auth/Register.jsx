@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import FormInput from "lib/components/inputs/formInput"
 import { auth, createUserProfileDocument } from "lib/utils/firebase"
 import { NotificationManager } from "react-notifications";
-import _ from "underscore"
 
 export default () => {
 

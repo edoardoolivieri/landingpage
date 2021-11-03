@@ -29,7 +29,7 @@ export default ({ init, setCurrentUser, currentUser }) => {
       setCurrentUser(userAuth)
     })
     init()
-  }, [init])
+  }, [init, setCurrentUser])
 
   return (
     <Router>
@@ -37,7 +37,6 @@ export default ({ init, setCurrentUser, currentUser }) => {
       <Scroller />
       <Switch>
         <Route exact={true} path="/" component={Stockx} />
-        <Route exact={true} path="/stockx" component={Stockx} />
         <Route exact={true} path="/stockx/:id" component={StockxSingle} />
         {/* LOGIN/REGISTER ROUTES */}
         <Route exact={true} path="/signin" render={() => extract(["currentUser"], currentUser) ? (<Redirect to="/stockx" />) : (<SignIn />)} />
